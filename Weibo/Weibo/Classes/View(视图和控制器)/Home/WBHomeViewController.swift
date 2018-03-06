@@ -14,7 +14,6 @@ class WBHomeViewController: WBBaseViewController {
         super.viewDidLoad()
 
 
-        view.backgroundColor = UIColor.cz_random()
     }
 
     override func didReceiveMemoryWarning() {

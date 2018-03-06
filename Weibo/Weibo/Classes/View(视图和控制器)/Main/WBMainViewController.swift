@@ -28,7 +28,10 @@ extension WBMainViewController {
 
     //设置所有子控制器
     private func setUpChildViewControllers() {
-        let array  = [["clsName":"WBHomeViewController","title":"首页","imageName":""]]
+        let array  = [["clsName":"WBHomeViewController","title":"首页","imageName":"home"],
+                      ["clsName":"WBMessageViewController","title":"消息","imageName":"message_center"],
+                      ["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover"],
+                      ["clsName":"WBProfileViewController","title":"我","imageName":"profile"],]
         var arrayM = [UIViewController]()
         for dict in array {
             print(dict)
@@ -57,6 +60,9 @@ extension WBMainViewController {
     //2. 创建视图控制器
     let vc = cls.init()
     vc.title = title
+    //3.设置图片
+    vc.tabBarItem.image = UIImage.init(named: "tabbar_"+imageName)?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+    vc.tabBarItem.selectedImage = UIImage.init(named: "tabbar_"+imageName+"_selected")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
     let nav = WBNavViewController.init(rootViewController: vc)
     return nav
   }

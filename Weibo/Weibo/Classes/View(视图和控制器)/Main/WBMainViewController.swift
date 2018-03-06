@@ -34,7 +34,7 @@ extension WBMainViewController {
                       ["clsName":"WBProfileViewController","title":"我","imageName":"profile"],]
         var arrayM = [UIViewController]()
         for dict in array {
-            print(dict)
+//            print(dict)
             arrayM.append(controller(dict: dict))
         }
         viewControllers = arrayM
@@ -52,17 +52,21 @@ extension WBMainViewController {
     let title = dict["title"],
     let imageName = dict["imageName"],
         let cls = NSClassFromString(Bundle.main.namespace+"."+clsName) as? UIViewController.Type
-//        print("-----\(cls)")
     else {
         return UIViewController()
     }
-    
+        print("-----\(cls)")
+
     //2. 创建视图控制器
     let vc = cls.init()
     vc.title = title
     //3.设置图片
     vc.tabBarItem.image = UIImage.init(named: "tabbar_"+imageName)?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
     vc.tabBarItem.selectedImage = UIImage.init(named: "tabbar_"+imageName+"_selected")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+   //4.设置tabbar的字体颜色
+    vc.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.orange], for: UIControlState.highlighted)
+    //设置字体大小  系统默认12
+//    vc.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize: 24)], for: UIControlState.normal)
     let nav = WBNavViewController.init(rootViewController: vc)
     return nav
   }

@@ -44,14 +44,14 @@ extension WBMainViewController {
         
         //计算每一个item宽度
         let count = CGFloat(childViewControllers.count)
-        let w = tabBar.frame.width / count
+        //将向内缩进的宽度减小，能够让按钮的宽度变大，遮住容错点
+        let w = tabBar.frame.width / count - 1
         
-        //设置composeButton的位置 缩进2个item的宽度
+        //设置composeButton的位置 缩进2个item的宽度  CGRectInset 正数向内缩进，负数向外扩展
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)
         print("撰写按钮宽度\(composeButton.bounds.width)")
         
         composeButton.addTarget(self, action: #selector(composeStatus), for: UIControlEvents.touchUpInside)
-        
     }
 
     //设置所有子控制器
@@ -69,11 +69,11 @@ extension WBMainViewController {
         viewControllers = arrayM
         
     }
+    
    /// 使用一个字典创建一个子控制器
    ///
    /// - Parameter dict: [clsName，title，imageName]
    /// - Returns: 导航控制器
-    
     private func controller(dict: [String : String]) -> UIViewController {
     
     //1. 取得字典内容

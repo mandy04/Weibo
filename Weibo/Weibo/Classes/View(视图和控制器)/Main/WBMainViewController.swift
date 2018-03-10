@@ -11,25 +11,40 @@ import UIKit
 //主控制器
 class WBMainViewController: UITabBarController {
 
+    private lazy var composeButton:UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add",
+                                                                      backgroundImageName: "tabbar_compose_button")
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         setUpChildViewControllers()
+        setUpComposeButton()
     }
-
 }
 
-//使用extensions进行切分代码块
 
+//使用extensions进行切分代码块
 //MARK: 设置界面
 extension WBMainViewController {
     
+    private func setUpComposeButton() {
+        
+        tabBar.addSubview(composeButton)
+        
+        //计算每一个item宽度
+        let count = CGFloat(childViewControllers.count)
+        let w = tabBar.frame.width / count
+        
+        //设置composeButton的位置 缩进2个item的宽度
+        composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)
+        print("撰写按钮宽度\(composeButton.bounds.width)")
+        
+    }
 
     //设置所有子控制器
     private func setUpChildViewControllers() {
         let array  = [["clsName":"WBHomeViewController","title":"首页","imageName":"home"],
                       ["clsName":"WBMessageViewController","title":"消息","imageName":"message_center"],
+                      ["clsName":"UIViewController"],
                       ["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover"],
                       ["clsName":"WBProfileViewController","title":"我","imageName":"profile"],]
         var arrayM = [UIViewController]()
@@ -70,5 +85,7 @@ extension WBMainViewController {
     let nav = WBNavViewController.init(rootViewController: vc)
     return nav
   }
+    
+    
 
 }

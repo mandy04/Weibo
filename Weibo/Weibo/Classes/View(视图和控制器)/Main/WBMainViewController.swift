@@ -11,6 +11,8 @@ import UIKit
 //主控制器
 class WBMainViewController: UITabBarController {
 
+    //MARK： 私有控件
+    //撰写按钮
     private lazy var composeButton:UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add",
                                                                       backgroundImageName: "tabbar_compose_button")
     override func viewDidLoad() {
@@ -19,6 +21,16 @@ class WBMainViewController: UITabBarController {
         setUpChildViewControllers()
         setUpComposeButton()
     }
+    
+    //MARK：监听方法
+    //撰写微博
+    //FIXME: 没有实现
+    //1.private ：保证方法私有，仅在当前对象被访问
+    //2.@objc ：允许这个函数在‘运行时’通过 OC 的消息机制被调用
+    @objc private func composeStatus() {
+        print("撰写微博")
+    }
+    
 }
 
 
@@ -37,6 +49,8 @@ extension WBMainViewController {
         //设置composeButton的位置 缩进2个item的宽度
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)
         print("撰写按钮宽度\(composeButton.bounds.width)")
+        
+        composeButton.addTarget(self, action: #selector(composeStatus), for: UIControlEvents.touchUpInside)
         
     }
 

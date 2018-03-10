@@ -15,6 +15,7 @@
 		763B495D204D4EFE00ECA116 /* WBHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763B495C204D4EFE00ECA116 /* WBHomeViewController.swift */; };
 		763B495F204D4F0900ECA116 /* WBDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763B495E204D4F0900ECA116 /* WBDiscoverViewController.swift */; };
 		76618A52204ED018002EC691 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76618A51204ED018002EC691 /* Bundle+extension.swift */; };
+		76618A5520538097002EC691 /* WBTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76618A5420538097002EC691 /* WBTestViewController.swift */; };
 		768B46C9204BEE9E0046D1CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768B46C8204BEE9E0046D1CB /* AppDelegate.swift */; };
 		768B46D0204BEE9E0046D1CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768B46CF204BEE9E0046D1CB /* Assets.xcassets */; };
 		76BC4179204EC6D600E5522B /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BC4162204EC6D600E5522B /* NSArray+Log.m */; };
@@ -40,6 +41,7 @@
 		763B495C204D4EFE00ECA116 /* WBHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBHomeViewController.swift; sourceTree = "<group>"; };
 		763B495E204D4F0900ECA116 /* WBDiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDiscoverViewController.swift; sourceTree = "<group>"; };
 		76618A51204ED018002EC691 /* Bundle+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
+		76618A5420538097002EC691 /* WBTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBTestViewController.swift; sourceTree = "<group>"; };
 		768B46C5204BEE9D0046D1CB /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768B46C8204BEE9E0046D1CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		768B46CF204BEE9E0046D1CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		763B4948204D4DF800ECA116 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				76618A5320538082002EC691 /* 测试 */,
 				763B494A204D4DF800ECA116 /* Tools(工具) */,
 				763B4949204D4DF800ECA116 /* Model(模型) */,
 				763B494B204D4DF800ECA116 /* View(视图和控制器) */,
@@ -177,6 +180,14 @@
 				76618A51204ED018002EC691 /* Bundle+extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		76618A5320538082002EC691 /* 测试 */ = {
+			isa = PBXGroup;
+			children = (
+				76618A5420538097002EC691 /* WBTestViewController.swift */,
+			);
+			path = "测试";
 			sourceTree = "<group>";
 		};
 		768B46BC204BEE9D0046D1CB = {
@@ -321,6 +332,7 @@
 				763B495B204D4EF500ECA116 /* WBProfileViewController.swift in Sources */,
 				763B4955204D4E8400ECA116 /* WBNavViewController.swift in Sources */,
 				76618A52204ED018002EC691 /* Bundle+extension.swift in Sources */,
+				76618A5520538097002EC691 /* WBTestViewController.swift in Sources */,
 				76BC417F204EC6D600E5522B /* UIButton+CZAddition.m in Sources */,
 				76BC4182204EC6D600E5522B /* UIScreen+CZAddition.m in Sources */,
 				763B4959204D4EEA00ECA116 /* WBMessageViewController.swift in Sources */,

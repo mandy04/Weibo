@@ -12,24 +12,25 @@ class WBTestViewController: WBBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        //设置title
+        title = "这是第\(navigationController?.childViewControllers.count ?? 0)个"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK: 监听事件
+    //继续PUSH一个新的控制器
+    @objc private func showNext() {
+        let vc = WBTestViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
-    */
+}
 
+extension WBTestViewController {
+    //MARK: 重写父类方法
+    override func setupUI() {
+        super.setupUI()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一页", style: .plain, target: self, action: #selector(showNext))
+    }
+    
 }

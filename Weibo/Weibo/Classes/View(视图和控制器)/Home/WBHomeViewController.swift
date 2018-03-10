@@ -28,12 +28,7 @@ extension WBHomeViewController {
         super.setupUI()
         
         //设置导航栏按钮
-        //自定义设置barButtonItem
-//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", style: .plain, target: self, action: #selector(showFriends))
-        
-        let btn : UIButton = UIButton.cz_textButton("好友", fontSize: 14, normalColor: UIColor.lightGray, highlightedColor: UIColor.orange)
-        btn.addTarget(self, action: #selector(showFriends), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: btn)
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", style: .plain, target: self, action: #selector(showFriends))
     }
 
     

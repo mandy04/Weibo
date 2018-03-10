@@ -30,7 +30,7 @@ extension WBTestViewController {
     override func setupUI() {
         super.setupUI()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "下一页", target: self, action: #selector(showNext))
+        navItem.rightBarButtonItem = UIBarButtonItem.init(title: "下一页", target: self, action: #selector(showNext))
 
     }
 }

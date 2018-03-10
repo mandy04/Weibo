@@ -95,7 +95,8 @@ extension WBMainViewController {
    //4.设置tabbar的字体颜色
     vc.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.orange], for: UIControlState.highlighted)
     //设置字体大小  系统默认12
-//    vc.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize: 24)], for: UIControlState.normal)
+    vc.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize: 12)], for: UIControlState.normal)
+    //实例化导航控制器的时候，会调用push方法，将vc压栈
     let nav = WBNavViewController.init(rootViewController: vc)
     return nav
   }

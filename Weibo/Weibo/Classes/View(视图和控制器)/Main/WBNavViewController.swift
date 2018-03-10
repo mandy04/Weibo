@@ -10,26 +10,15 @@ import UIKit
 
 class WBNavViewController: UINavigationController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    //重写push 所有push动作都会调用此方法
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        print(viewController)
+        //如果不是栈底控制器才需要隐藏，根控制器不需要处理
+        if childViewControllers.count > 0 {
+            //隐藏底部的tabbar
+            viewController.hidesBottomBarWhenPushed = true
+        }
+        
+        super.pushViewController(viewController, animated: animated)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -17,7 +17,6 @@ class WBHomeViewController: WBBaseViewController {
     @objc private func showFriends(){
         print(#function)
         let vc = WBTestViewController()
-        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
 }

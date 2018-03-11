@@ -12,6 +12,9 @@
  *     5.访客试图  用户没有登录的界面显示
  */
 
+//注意：swift中利用extension可以把函数按照功能进行分类，便于阅读和维护！
+//1. extension 不能有属性
+//2. extension不能重写父类方法！重写父类的方法是子类的职责，扩展是类的扩展
 import UIKit
 
 ///所有控制器的基类
@@ -28,7 +31,10 @@ class WBBaseViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-    
+    //基类设置假数据
+    func loadData() {
+        
+    }
     //重写title setter方法，设置标题
     override var title: String? {
         didSet {
@@ -51,7 +57,7 @@ extension WBBaseViewController {
     }
     
     //MARK： 设置表格视图
-   private func setupTableView() {
+    @objc func setupTableView() {
     tableView = UITableView.init(frame: view.bounds, style: .plain)
     view.insertSubview(tableView!, belowSubview: navigationBar)
     //设置数据源代理及方法，目的:子类实现数据源方法

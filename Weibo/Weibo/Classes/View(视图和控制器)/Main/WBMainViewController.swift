@@ -22,6 +22,15 @@ class WBMainViewController: UITabBarController {
         setUpComposeButton()
     }
     
+   /*  portrait   竖屏，肖像
+    *  landscape   横屏，风景画
+    *  好处：自由横竖屏幕，设置支持的方向之后，当前的控制器及子控制器都会遵守这个方向
+    *   如果是视频播放，通过modal展现
+    */
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     //MARK：监听方法
     //撰写微博
     //FIXME: 没有实现

@@ -54,6 +54,7 @@ extension WBBaseViewController {
    private func setupTableView() {
     tableView = UITableView.init(frame: view.bounds, style: .plain)
     view.insertSubview(tableView!, belowSubview: navigationBar)
+    //设置数据源代理及方法，目的:子类实现数据源方法
     tableView?.delegate = self
     tableView?.dataSource = self
     }
@@ -78,7 +79,7 @@ extension WBBaseViewController {
 
 
 ///设置协议UITableViewDelegate,UITableViewDataSource
-//父类负责声明方法，子类负责实现
+//基类只负责准备方法，子类负责实现，子类的数据源方法不需要super
 extension WBBaseViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

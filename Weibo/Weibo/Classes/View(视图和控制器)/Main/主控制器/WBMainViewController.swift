@@ -40,7 +40,6 @@ class WBMainViewController: UITabBarController {
         print("撰写微博")
         
     }
-    
 }
 
 

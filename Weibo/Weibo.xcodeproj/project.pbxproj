@@ -146,8 +146,7 @@
 		763B494E204D4DF800ECA116 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				763B4952204D4E5B00ECA116 /* WBMainViewController.swift */,
-				763B4954204D4E8400ECA116 /* WBNavViewController.swift */,
+				76ADCD942055157500CE5A1C /* 主控制器 */,
 				763B4956204D4EAE00ECA116 /* WBBaseViewController.swift */,
 			);
 			path = Main;
@@ -219,6 +218,15 @@
 				768B46D4204BEE9E0046D1CB /* Info.plist */,
 			);
 			path = Weibo;
+			sourceTree = "<group>";
+		};
+		76ADCD942055157500CE5A1C /* 主控制器 */ = {
+			isa = PBXGroup;
+			children = (
+				763B4952204D4E5B00ECA116 /* WBMainViewController.swift */,
+				763B4954204D4E8400ECA116 /* WBNavViewController.swift */,
+			);
+			path = "主控制器";
 			sourceTree = "<group>";
 		};
 		76BC415F204EC6D600E5522B /* Additions */ = {

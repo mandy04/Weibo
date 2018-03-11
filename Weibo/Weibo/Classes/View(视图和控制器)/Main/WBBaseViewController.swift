@@ -23,7 +23,7 @@ class WBBaseViewController: UIViewController {
     //设置底层视图
     let fixView = UIView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
     //设置导航条
-    lazy var navigationBar = UINavigationBar.init(frame: CGRect(x: 0, y: 20, width: UIScreen.cz_screenWidth(), height: 64))
+    lazy var navigationBar = UINavigationBar.init(frame: CGRect(x: 0, y: 20, width: UIScreen.cz_screenWidth(), height: 44))
     //设置导航条目
     lazy var navItem = UINavigationItem()
     //设置tableView表格，用户登录之后才创建
@@ -54,6 +54,8 @@ extension WBBaseViewController {
     //注：swift4.0 子类要重写父类的extension方法，需要加@objc，否则报错"Declarations in extensions cannot override yet"
    @objc func setupUI() {
     
+    //取消自动缩进 如果隐藏了导航栏，会缩进20个点
+        automaticallyAdjustsScrollViewInsets = false
         setupNavigaitonBar()
         setupTableView()
 
@@ -66,6 +68,11 @@ extension WBBaseViewController {
     //设置数据源代理及方法，目的:子类实现数据源方法
     tableView?.delegate = self
     tableView?.dataSource = self
+    //设置内容缩进
+    tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height,
+                                           left: 0,
+                                           bottom: 0,//tabBarController?.tabBar.bounds.height ?? 49
+                                           right: 0)
     }
     
     //MARK： 设置导航条视图

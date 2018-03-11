@@ -19,17 +19,17 @@ class WBHomeViewController: WBBaseViewController {
     }
     // MARK: - 显示好友
     @objc private func showFriends(){
-        print(#function)
+//        print(#function)
         let vc = WBTestViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - 设置表格假数据
     override func loadData() {
-        for i in 0..<10 {
+        for i in 0..<20 {
             //将数据插入数组的顶部
             statusList.insert(i.description, at: 0)
-            print(statusList)
+//            print(statusList)
         }
     }
 }

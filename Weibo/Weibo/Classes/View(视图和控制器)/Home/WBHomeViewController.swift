@@ -29,6 +29,7 @@ class WBHomeViewController: WBBaseViewController {
         for i in 0..<10 {
             //将数据插入数组的顶部
             statusList.insert(i.description, at: 0)
+            print(statusList)
         }
     }
 }

@@ -20,6 +20,8 @@ import UIKit
 ///所有控制器的基类
 class WBBaseViewController: UIViewController {
 
+    //设置底层视图
+    let fixView = UIView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
     //设置导航条
     lazy var navigationBar = UINavigationBar.init(frame: CGRect(x: 0, y: 20, width: UIScreen.cz_screenWidth(), height: 64))
     //设置导航条目
@@ -30,6 +32,7 @@ class WBBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        loadData()
     }
     //基类设置假数据
     func loadData() {
@@ -59,7 +62,7 @@ extension WBBaseViewController {
     //MARK： 设置表格视图
     @objc func setupTableView() {
     tableView = UITableView.init(frame: view.bounds, style: .plain)
-    view.insertSubview(tableView!, belowSubview: navigationBar)
+    view.insertSubview(tableView!, belowSubview: fixView)
     //设置数据源代理及方法，目的:子类实现数据源方法
     tableView?.delegate = self
     tableView?.dataSource = self
@@ -68,7 +71,6 @@ extension WBBaseViewController {
     //MARK： 设置导航条视图
    private func setupNavigaitonBar() {
         //FIXME: 添加一个底层视图，矫正title显示位置
-        let fixView = UIView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
         fixView.backgroundColor = UIColor.cz_color(withHex: 0xF6F6F6)
         view.addSubview(fixView)
         
@@ -82,7 +84,6 @@ extension WBBaseViewController {
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.lightGray]
     }
 }
-
 
 ///设置协议UITableViewDelegate,UITableViewDataSource
 //基类只负责准备方法，子类负责实现，子类的数据源方法不需要super

@@ -38,6 +38,7 @@ class WBMainViewController: UITabBarController {
     //2.@objc ：允许这个函数在‘运行时’通过 OC 的消息机制被调用
     @objc private func composeStatus() {
         print("撰写微博")
+        
     }
     
 }

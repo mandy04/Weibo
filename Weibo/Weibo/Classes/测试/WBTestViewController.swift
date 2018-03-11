@@ -23,6 +23,15 @@ class WBTestViewController: WBBaseViewController {
         let vc = WBTestViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    //MARK: 测试屏幕的方向
+    func testOrientation() {
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.brown
+        let nav = UINavigationController.init(rootViewController: vc)
+        present(nav, animated: true, completion: nil)
+    }
+    
 }
 
 extension WBTestViewController {

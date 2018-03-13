@@ -33,7 +33,7 @@ class WBBaseViewController: UIViewController {
     //上拉刷新标记
     var isPullUp:Bool = false
     //用户登录标记
-    var userLogon:Bool = true
+    var userLogon:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +69,7 @@ extension WBBaseViewController {
     
     //MArk: 设置访客试图
     @objc func setupVisitorView(){
-        let visitorView = UIView.init(frame: view.bounds)
-        visitorView.backgroundColor = UIColor.cz_random()
+        let visitorView = WBVisitorView.init(frame: view.bounds)
         view.insertSubview(visitorView, belowSubview: navBarView)
         
     }

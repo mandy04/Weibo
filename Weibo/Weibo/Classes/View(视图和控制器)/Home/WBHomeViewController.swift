@@ -27,14 +27,20 @@ class WBHomeViewController: WBBaseViewController {
     // MARK: - 设置表格假数据
     ///模拟 '延迟' 加载数据
     override func loadData() {
-//        print("开始加载数据")
+        print("开始加载数据")
         //尾随闭包里属性前加self区分语境， 从现在开始延迟1s时间
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             for i in 0..<20 {
-                //将数据插入数组的顶部
-                self.statusList.insert(i.description, at: 0)
+                
+                if self.isPullUp {
+                    self.statusList.append("上拉数据\(i)")
+                }else{
+                    //将数据插入数组的顶部
+                    self.statusList.insert(i.description, at: 0)
+                }
             }
-//            print("刷新表格")
+            print("结束数据")
+            self.isPullUp = false
             self.refreshControl?.endRefreshing()
             self.tableView?.reloadData()
         }
@@ -69,6 +75,9 @@ extension WBHomeViewController {
         
         if row == (count - 1) && !isPullUp {
             print("上拉刷新")
+            isPullUp = true
+            //加载数据
+            loadData()
         }
     }
     

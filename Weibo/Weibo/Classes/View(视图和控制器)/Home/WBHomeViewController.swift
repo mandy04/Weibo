@@ -54,6 +54,24 @@ extension WBHomeViewController {
         //3.返回cell
         return cell
     }
+    //上拉刷新的条件判断：加载到最后一行indexPath.row.section（最大）、indexPath.row（最后一行）上拉刷新
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        //1> row
+        let row = indexPath.row
+        //2> section
+        let section = tableView.numberOfSections - 1
+        if  section < 0 || row < 0{
+            return
+        }
+       //3>行数
+        let count = tableView.numberOfRows(inSection: section)
+        
+        if row == (count - 1) && !isPullUp {
+            print("上拉刷新")
+        }
+    }
+    
 }
 // MARK: - 设置界面
 extension WBHomeViewController {

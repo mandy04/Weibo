@@ -30,6 +30,8 @@ class WBBaseViewController: UIViewController {
     var tableView: UITableView?
     //刷新控件
     var refreshControl: UIRefreshControl?
+    //是否上拉刷新
+    var isPullUp:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -40,8 +40,9 @@ class WBHomeViewController: WBBaseViewController {
                 }
             }
             print("结束数据")
-            self.isPullUp = false
             self.refreshControl?.endRefreshing()
+            //恢复上拉标志
+            self.isPullUp = false
             self.tableView?.reloadData()
         }
     }

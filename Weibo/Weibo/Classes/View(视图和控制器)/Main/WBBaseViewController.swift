@@ -40,7 +40,8 @@ class WBBaseViewController: UIViewController {
     }
     //基类设置加载数据
     @objc func loadData() {
-        
+        //如何子类不识闲任何方法，默认关闭刷新控件
+        refreshControl?.endRefreshing()
     }
     //重写title setter方法，设置标题
     override var title: String? {

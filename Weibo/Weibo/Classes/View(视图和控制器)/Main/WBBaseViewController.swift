@@ -28,14 +28,16 @@ class WBBaseViewController: UIViewController {
     lazy var navItem = UINavigationItem()
     //设置tableView表格，用户登录之后才创建
     var tableView: UITableView?
+    //刷新控件
+    var refreshControl: UIRefreshControl?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         loadData()
     }
-    //基类设置假数据
-    func loadData() {
+    //基类设置加载数据
+    @objc func loadData() {
         
     }
     //重写title setter方法，设置标题
@@ -73,6 +75,13 @@ extension WBBaseViewController {
                                            left: 0,
                                            bottom: 0,//tabBarController?.tabBar.bounds.height ?? 49
                                            right: 0)
+    //添加刷新控件
+      // 1>实例化控件
+    refreshControl = UIRefreshControl.init()
+      // 2>添加到表格视图
+    tableView?.addSubview(refreshControl!)
+      // 3>添加监听方法
+    refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }
     
     //MARK： 设置导航条视图

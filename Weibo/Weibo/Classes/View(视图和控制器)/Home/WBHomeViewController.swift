@@ -25,11 +25,18 @@ class WBHomeViewController: WBBaseViewController {
     }
     
     // MARK: - 设置表格假数据
+    ///模拟 '延迟' 加载数据
     override func loadData() {
-        for i in 0..<20 {
-            //将数据插入数组的顶部
-            statusList.insert(i.description, at: 0)
-//            print(statusList)
+//        print("开始加载数据")
+        //尾随闭包里属性前加self区分语境， 从现在开始延迟1s时间
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            for i in 0..<20 {
+                //将数据插入数组的顶部
+                self.statusList.insert(i.description, at: 0)
+            }
+//            print("刷新表格")
+            self.refreshControl?.endRefreshing()
+            self.tableView?.reloadData()
         }
     }
 }

@@ -21,7 +21,7 @@ import UIKit
 class WBBaseViewController: UIViewController {
 
     //设置底层视图
-    let fixView = UIView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
+    let navBarView = UIView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
     //设置导航条
     lazy var navigationBar = UINavigationBar.init(frame: CGRect(x: 0, y: 20, width: UIScreen.cz_screenWidth(), height: 44))
     //设置导航条目
@@ -30,8 +30,10 @@ class WBBaseViewController: UIViewController {
     var tableView: UITableView?
     //刷新控件
     var refreshControl: UIRefreshControl?
-    //是否上拉刷新
+    //上拉刷新标记
     var isPullUp:Bool = false
+    //用户登录标记
+    var userLogon:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,14 +64,21 @@ extension WBBaseViewController {
     //取消自动缩进 如果隐藏了导航栏，会缩进20个点
         automaticallyAdjustsScrollViewInsets = false
         setupNavigaitonBar()
-        setupTableView()
-
+        userLogon ? setupTableView() : setupVisitorView()
+    }
+    
+    //MArk: 设置访客试图
+    @objc func setupVisitorView(){
+        let visitorView = UIView.init(frame: view.bounds)
+        visitorView.backgroundColor = UIColor.cz_random()
+        view.insertSubview(visitorView, belowSubview: navBarView)
+        
     }
     
     //MARK： 设置表格视图
     @objc func setupTableView() {
     tableView = UITableView.init(frame: view.bounds, style: .plain)
-    view.insertSubview(tableView!, belowSubview: fixView)
+    view.insertSubview(tableView!, belowSubview: navBarView)
     //设置数据源代理及方法，目的:子类实现数据源方法
     tableView?.delegate = self
     tableView?.dataSource = self
@@ -90,11 +99,11 @@ extension WBBaseViewController {
     //MARK： 设置导航条视图
    private func setupNavigaitonBar() {
         //FIXME: 添加一个底层视图，矫正title显示位置
-        fixView.backgroundColor = UIColor.cz_color(withHex: 0xF6F6F6)
-        view.addSubview(fixView)
+        navBarView.backgroundColor = UIColor.cz_color(withHex: 0xF6F6F6)
+        view.addSubview(navBarView)
         
         //添加navigationBar
-        fixView.addSubview(navigationBar)
+        navBarView.addSubview(navigationBar)
         //将item设置给bar
         navigationBar.items = [navItem]
         //设置navigationBar 条子渲染颜色

@@ -14,7 +14,7 @@
 
 //注意：swift中利用extension可以把函数按照功能进行分类，便于阅读和维护！
 //1. extension 不能有属性
-//2. extension不能重写父类方法！重写父类的方法是子类的职责，扩展是类的扩展
+//2. extension不能重写父类‘本类’方法！即父类在extension，子类也在extension中。重写父类的方法是子类的职责，扩展是类的扩展 
 import UIKit
 
 ///所有控制器的基类

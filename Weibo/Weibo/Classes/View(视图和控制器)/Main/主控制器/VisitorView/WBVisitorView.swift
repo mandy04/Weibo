@@ -27,7 +27,6 @@ class WBVisitorView: UIView {
                 return
             }
             iconImage.image = UIImage.init(named: imageName)
-            
         }
     }
     

@@ -34,6 +34,8 @@ class WBBaseViewController: UIViewController {
     var isPullUp:Bool = false
     //用户登录标记
     var userLogon:Bool = false
+    //访客视图信息字典
+    var visitorInfoDict:[String:String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +73,7 @@ extension WBBaseViewController {
     @objc func setupVisitorView(){
         let visitorView = WBVisitorView.init(frame: view.bounds)
         view.insertSubview(visitorView, belowSubview: navBarView)
+        visitorView.visitorInfo = visitorInfoDict
         
     }
     

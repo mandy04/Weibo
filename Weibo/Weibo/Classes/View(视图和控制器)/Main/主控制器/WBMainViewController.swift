@@ -65,7 +65,8 @@ extension WBMainViewController {
 
     //设置所有子控制器
     private func setUpChildViewControllers() {
-        let array  = [["clsName":"WBHomeViewController","title":"首页","imageName":"home"],
+        let array :[[String: Any]] = [["clsName":"WBHomeViewController","title":"首页","imageName":"home",
+                       "visitorInfo":["imageName":"","messgage":"哈哈哈"]],
                       ["clsName":"WBMessageViewController","title":"消息","imageName":"message_center"],
                       ["clsName":"UIViewController"],
                       ["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover"],
@@ -83,12 +84,12 @@ extension WBMainViewController {
    ///
    /// - Parameter dict: [clsName，title，imageName]
    /// - Returns: 导航控制器
-    private func controller(dict: [String : String]) -> UIViewController {
+    private func controller(dict: [String : Any]) -> UIViewController {
     
     //1. 取得字典内容
-    guard let clsName = dict["clsName"],
-    let title = dict["title"],
-    let imageName = dict["imageName"],
+    guard let clsName = dict["clsName"] as? String,
+    let title = dict["title"] as? String,
+    let imageName = dict["imageName"] as? String,
         let cls = NSClassFromString(Bundle.main.namespace+"."+clsName) as? UIViewController.Type
     else {
         return UIViewController()

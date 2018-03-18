@@ -74,7 +74,7 @@ extension WBMainViewController {
                        "visitorInfo":["imageName":"visitordiscover_image_message","messgage":"登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"]],
                       ["clsName":"WBProfileViewController","title":"我","imageName":"profile",
                        "visitorInfo":["imageName":"visitordiscover_image_profile","messgage":"登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]],]
-        (array as NSArray) .write(toFile: "/Users/llbt/Desktop/demo.plist", atomically: true)
+//        (array as NSArray) .write(toFile: "/Users/llbt/Desktop/demo.plist", atomically: true)
         var arrayM = [UIViewController]()
         for dict in array {
 //            print(dict)
@@ -86,15 +86,16 @@ extension WBMainViewController {
     
    /// 使用一个字典创建一个子控制器
    ///
-   /// - Parameter dict: [clsName，title，imageName]
+   /// - Parameter dict: [clsName，title，imageName,visitorInfo]
    /// - Returns: 导航控制器
     private func controller(dict: [String : Any]) -> UIViewController {
     
     //1. 取得字典内容
     guard let clsName = dict["clsName"] as? String,
-    let title = dict["title"] as? String,
-    let imageName = dict["imageName"] as? String,
-        let cls = NSClassFromString(Bundle.main.namespace+"."+clsName) as? UIViewController.Type
+        let title = dict["title"] as? String,
+        let imageName = dict["imageName"] as? String,
+        let cls = NSClassFromString(Bundle.main.namespace+"."+clsName) as? WBBaseViewController.Type,
+        let visitorDict = dict["visitorInfo"] as? [String:String]
     else {
         return UIViewController()
     }
@@ -103,6 +104,8 @@ extension WBMainViewController {
     //2. 创建视图控制器
     let vc = cls.init()
     vc.title = title
+    //设置访客视图的字典
+    vc.visitorInfoDict = visitorDict
     //3.设置图片
     vc.tabBarItem.image = UIImage.init(named: "tabbar_"+imageName)?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
     vc.tabBarItem.selectedImage = UIImage.init(named: "tabbar_"+imageName+"_selected")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)

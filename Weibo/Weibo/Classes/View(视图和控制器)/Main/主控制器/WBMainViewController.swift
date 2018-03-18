@@ -66,11 +66,15 @@ extension WBMainViewController {
     //设置所有子控制器
     private func setUpChildViewControllers() {
         let array :[[String: Any]] = [["clsName":"WBHomeViewController","title":"首页","imageName":"home",
-                       "visitorInfo":["imageName":"","messgage":"哈哈哈"]],
-                      ["clsName":"WBMessageViewController","title":"消息","imageName":"message_center"],
+                       "visitorInfo":["imageName":"","messgage":"关注一些人，回这里看看有什么惊喜"]],
+                      ["clsName":"WBMessageViewController","title":"消息","imageName":"message_center",
+                       "visitorInfo":["imageName":"visitordiscover_image_message","messgage":"登录后，别人评论你的微博，发给你的消息，都会在这里收到通知"]],
                       ["clsName":"UIViewController"],
-                      ["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover"],
-                      ["clsName":"WBProfileViewController","title":"我","imageName":"profile"],]
+                      ["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover",
+                       "visitorInfo":["imageName":"visitordiscover_image_message","messgage":"登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"]],
+                      ["clsName":"WBProfileViewController","title":"我","imageName":"profile",
+                       "visitorInfo":["imageName":"visitordiscover_image_profile","messgage":"登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]],]
+        (array as NSArray) .write(toFile: "/Users/llbt/Desktop/demo.plist", atomically: true)
         var arrayM = [UIViewController]()
         for dict in array {
 //            print(dict)

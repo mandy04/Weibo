@@ -65,28 +65,22 @@ extension WBMainViewController {
 
     //设置所有子控制器
     private func setUpChildViewControllers() {
-        let array :[[String: Any]] = [["clsName":"WBHomeViewController","title":"首页","imageName":"home",
-                       "visitorInfo":["imageName":"","messgage":"关注一些人，回这里看看有什么惊喜"]],
-                      ["clsName":"WBMessageViewController","title":"消息","imageName":"message_center",
-                       "visitorInfo":["imageName":"visitordiscover_image_message","messgage":"登录后，别人评论你的微博，发给你的消息，都会在这里收到通知"]],
-                      ["clsName":"UIViewController"],
-                      ["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover",
-                       "visitorInfo":["imageName":"visitordiscover_image_message","messgage":"登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"]],
-                      ["clsName":"WBProfileViewController","title":"我","imageName":"profile",
-                       "visitorInfo":["imageName":"visitordiscover_image_profile","messgage":"登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]],]
-//        (array as NSArray) .write(toFile: "/Users/llbt/Desktop/demo.plist", atomically: true)
         
-        //数组 -> json 序列化
-       let data = try! JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
-        (data as? NSData)? .write(toFile: "/Users/llbt/Desktop/main.json", atomically: true)
-        
+        //1.取json 2.转data 3.反序列化
+        guard let pathDir = Bundle.main.path(forResource: "main.json", ofType: nil),
+        let data = NSData.init(contentsOfFile: pathDir),
+            let array = try? JSONSerialization.jsonObject(with: (data ) as Data, options: []) as? [[String: Any]]
+
+        else {
+            return
+        }
+        //遍历数组，循环创建控制器数组
         var arrayM = [UIViewController]()
-        for dict in array {
-//            print(dict)
+        for dict in array! {
             arrayM.append(controller(dict: dict))
         }
+        //设置tabbar的子控制器
         viewControllers = arrayM
-        
     }
     
    /// 使用一个字典创建一个子控制器

@@ -236,8 +236,8 @@
 			isa = PBXGroup;
 			children = (
 				76716CD320588B4B005A4DA8 /* VisitorView */,
-				763B4952204D4E5B00ECA116 /* WBMainViewController.swift */,
 				76716CD6205EE02D005A4DA8 /* main.json */,
+				763B4952204D4E5B00ECA116 /* WBMainViewController.swift */,
 				763B4954204D4E8400ECA116 /* WBNavViewController.swift */,
 			);
 			path = "主控制器";

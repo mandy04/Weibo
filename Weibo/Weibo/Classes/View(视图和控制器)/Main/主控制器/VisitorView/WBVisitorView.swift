@@ -16,7 +16,7 @@ class WBVisitorView: UIView {
         didSet{
             //1>取字典信息
             guard let  imageName = visitorInfo?["imageName"],
-                let message = visitorInfo?["message"] else {
+                let message = visitorInfo?["messgage"] else {
                     return
             }
             //2> 设置信息
@@ -24,9 +24,13 @@ class WBVisitorView: UIView {
             
             //3> 设置图片
             if imageName == "" {
+                startAnimate()
                 return
             }
             iconImage.image = UIImage.init(named: imageName)
+            //4>设置背的视图隐藏小房子、遮罩
+            houseIconImage.isHidden = true
+            maskImage.isHidden = true
         }
     }
     
@@ -37,6 +41,18 @@ class WBVisitorView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func startAnimate() {
+        let anim = CABasicAnimation.init(keyPath: "transform.rotation")
+        anim.toValue = 2 * Double.pi
+        anim.repeatCount = MAXFLOAT
+        anim.duration = 15
+        
+        //设置连续动画，动画完成不删除，如果iconImage被释放，动画会一起销毁
+        anim.isRemovedOnCompletion = false
+        //动画添加到图层
+        iconImage.layer.add(anim, forKey: nil)
     }
 
     //MARK: - 私有控件  懒加载属性只有调用 UIKit 控件的指定构造函数，其他都需要使用类型

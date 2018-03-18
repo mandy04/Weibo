@@ -22,10 +22,12 @@ class WBVisitorView: UIView {
     //MARK: - 私有控件  懒加载属性只有调用 UIKit 控件的指定构造函数，其他都需要使用类型
     ///icon 图标
     private lazy var iconImage:UIImageView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_image_smallicon"))
+    //遮罩
+    private lazy var maskImage: UIView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_mask_smallicon"))
     ///hourseICon 小房子
     private lazy var houseIconImage:UIImageView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_image_house"))
     ///tipLabel 提示标签
-    private lazy var tipLabel:UILabel = UILabel.cz_label(withText: "关注一些人，回这里看看有什么新鲜事关注一些人，回这里看看有什么新鲜事", fontSize: 14, color: UIColor.darkGray)
+    private lazy var tipLabel:UILabel = UILabel.cz_label(withText: "关注一些人，回这里看看有什么惊喜关注一些人，回这里看看有什么惊喜", fontSize: 14, color: UIColor.darkGray)
     ///注册
     private lazy var registerButton:UIButton = UIButton.cz_textButton("注册",
                                                                       fontSize: 14,
@@ -46,6 +48,7 @@ extension WBVisitorView {
         backgroundColor = UIColor.white
         //1. 添加视图
         addSubview(iconImage)
+        addSubview(maskImage)
         addSubview(houseIconImage)
         addSubview(tipLabel)
         addSubview(registerButton)
@@ -83,6 +86,7 @@ extension WBVisitorView {
                                                 attribute: .centerY,
                                                 multiplier: 1.0,
                                                 constant: 0))
+        
         //小房子
         addConstraint(NSLayoutConstraint.init(item: houseIconImage,
                                                 attribute: .centerX,
@@ -163,7 +167,21 @@ extension WBVisitorView {
                                               toItem: registerButton,
                                               attribute: .width,
                                               multiplier: 1.0,
-                                              constant: 100))
+                                              constant: 0))
+        //设置遮罩
+        //1. views:定义VFL中的控件名称和实际名称映射关系
+        //2. metrics:定义VFL中（）指定的常数映射关系
+        let viewDict = ["maskImage":maskImage,
+                        "registerButton":registerButton]
+        let metrics = ["spacing":-35]
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[maskImage]-0-|",
+                                                      options: [],
+                                                      metrics: nil,
+                                                      views: viewDict))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[maskImage]-(spacing)-[registerButton]",
+                                                      options: [],
+                                                      metrics: metrics,
+                                                      views: viewDict))
 
         
     }

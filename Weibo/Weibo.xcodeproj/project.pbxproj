@@ -18,6 +18,7 @@
 		76618A5520538097002EC691 /* WBTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76618A5420538097002EC691 /* WBTestViewController.swift */; };
 		76618A572053990B002EC691 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76618A562053990B002EC691 /* UIBarButtonItem+Extension.swift */; };
 		76716CD520588B6A005A4DA8 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76716CD420588B6A005A4DA8 /* WBVisitorView.swift */; };
+		76716CD7205EE02D005A4DA8 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 76716CD6205EE02D005A4DA8 /* main.json */; };
 		768B46C9204BEE9E0046D1CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768B46C8204BEE9E0046D1CB /* AppDelegate.swift */; };
 		768B46D0204BEE9E0046D1CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768B46CF204BEE9E0046D1CB /* Assets.xcassets */; };
 		76BC4179204EC6D600E5522B /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BC4162204EC6D600E5522B /* NSArray+Log.m */; };
@@ -46,6 +47,7 @@
 		76618A5420538097002EC691 /* WBTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBTestViewController.swift; sourceTree = "<group>"; };
 		76618A562053990B002EC691 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		76716CD420588B6A005A4DA8 /* WBVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
+		76716CD6205EE02D005A4DA8 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		768B46C5204BEE9D0046D1CB /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768B46C8204BEE9E0046D1CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		768B46CF204BEE9E0046D1CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			children = (
 				76716CD320588B4B005A4DA8 /* VisitorView */,
 				763B4952204D4E5B00ECA116 /* WBMainViewController.swift */,
+				76716CD6205EE02D005A4DA8 /* main.json */,
 				763B4954204D4E8400ECA116 /* WBNavViewController.swift */,
 			);
 			path = "主控制器";
@@ -332,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76716CD7205EE02D005A4DA8 /* main.json in Resources */,
 				768B46D0204BEE9E0046D1CB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

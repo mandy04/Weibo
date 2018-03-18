@@ -75,6 +75,11 @@ extension WBMainViewController {
                       ["clsName":"WBProfileViewController","title":"我","imageName":"profile",
                        "visitorInfo":["imageName":"visitordiscover_image_profile","messgage":"登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]],]
 //        (array as NSArray) .write(toFile: "/Users/llbt/Desktop/demo.plist", atomically: true)
+        
+        //数组 -> json 序列化
+       let data = try! JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
+        (data as? NSData)? .write(toFile: "/Users/llbt/Desktop/main.json", atomically: true)
+        
         var arrayM = [UIViewController]()
         for dict in array {
 //            print(dict)

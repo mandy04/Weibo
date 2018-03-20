@@ -80,7 +80,7 @@ extension WBMainViewController {
         }
 
         //3.反序列化
-        guard let array = try? JSONSerialization.jsonObject(with: (data as! NSData) as Data, options: []) as? [[String: AnyObject]]
+        guard let array = try? JSONSerialization.jsonObject(with: data! as Data, options: []) as? [[String: AnyObject]]
         else {
             return
         }

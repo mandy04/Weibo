@@ -55,6 +55,14 @@ class WBBaseViewController: UIViewController {
     }
 }
 
+extension WBBaseViewController {
+    @objc func login() {
+        print("登录")
+    }
+    @objc func register() {
+        print("注册")
+    }
+}
 
 ///设置视图
 extension WBBaseViewController {
@@ -75,6 +83,9 @@ extension WBBaseViewController {
         view.insertSubview(visitorView, belowSubview: navBarView)
         visitorView.visitorInfo = visitorInfoDict
         
+        //设置访客视图监听方法
+        visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
     }
     
     //MARK： 设置表格视图

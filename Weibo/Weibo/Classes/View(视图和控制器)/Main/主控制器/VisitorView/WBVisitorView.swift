@@ -10,6 +10,18 @@ import UIKit
 
 class WBVisitorView: UIView {
 
+    ///注册
+    lazy var registerButton:UIButton = UIButton.cz_textButton("注册",
+                                                                      fontSize: 14,
+                                                                      normalColor: UIColor.orange,
+                                                                      highlightedColor: UIColor.black, backgroundImageName: "common_button_white_disable")
+    ///登录
+    lazy var loginButton:UIButton = UIButton.cz_textButton("登录",
+                                                                   fontSize: 14,
+                                                                   normalColor: UIColor.darkGray,
+                                                                   highlightedColor: UIColor.black, backgroundImageName: "common_button_white_disable")
+    
+    
     //使用字典设置访客视图
     //如果是首页，imageName = ""
     var visitorInfo: [String:String]? {
@@ -64,18 +76,7 @@ class WBVisitorView: UIView {
     private lazy var houseIconImage:UIImageView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_image_house"))
     ///tipLabel 提示标签
     private lazy var tipLabel:UILabel = UILabel.cz_label(withText: "关注一些人，回这里看看有什么惊喜关注一些人，回这里看看有什么惊喜", fontSize: 14, color: UIColor.darkGray)
-    ///注册
-    private lazy var registerButton:UIButton = UIButton.cz_textButton("注册",
-                                                                      fontSize: 14,
-                                                                      normalColor: UIColor.orange,
-                                                                      highlightedColor: UIColor.black, backgroundImageName: "common_button_white_disable")
-    ///登录
-    private lazy var loginButton:UIButton = UIButton.cz_textButton("登录",
-                                                                      fontSize: 14,
-                                                                      normalColor: UIColor.darkGray,
-                                                                      highlightedColor: UIColor.black, backgroundImageName: "common_button_white_disable")
-    
-    
+   
 }
 
 //MARK: 设置界面

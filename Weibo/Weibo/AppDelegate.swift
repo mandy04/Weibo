@@ -21,8 +21,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
         
+        loadInfo()
         return true
     }
+}
 
+//MARK: - 从服务器加载数据
+extension AppDelegate {
+    
+    private func loadInfo(){
+        DispatchQueue.global().async {
+            
+            let url = Bundle.main.url(forResource: "main.json", withExtension: nil)
+            
+            let data = NSData.init(contentsOf: url!)
+            
+            let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            
+            let jsonPath = (docDir as NSString).appendingPathComponent("main.json")
+            
+            //写入磁盘
+            data?.write(toFile: jsonPath, atomically: true)
+        }
+    }
 }
 

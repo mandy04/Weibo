@@ -66,11 +66,21 @@ extension WBMainViewController {
     //设置所有子控制器
     private func setUpChildViewControllers() {
         
-        //1.取json 2.转data 3.反序列化
-        guard let pathDir = Bundle.main.path(forResource: "main.json", ofType: nil),
-        let data = NSData.init(contentsOfFile: pathDir),
-            let array = try? JSONSerialization.jsonObject(with: (data ) as Data, options: []) as? [[String: Any]]
+        //1.取json：获取沙盒json路径
+        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let jsonPath = (docDir as NSString).appendingPathComponent("main.json")
+        
+        //2.加载data
+        var data = NSData.init(contentsOfFile: jsonPath)
+        
+        //判断data是否有数据
+        if data == nil {
+            let pathDir = Bundle.main.path(forResource: "main.json", ofType: nil)
+            data = NSData.init(contentsOfFile: pathDir!)
+        }
 
+        //3.反序列化
+        guard let array = try? JSONSerialization.jsonObject(with: (data as! NSData) as Data, options: []) as? [[String: AnyObject]]
         else {
             return
         }

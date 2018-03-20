@@ -36,8 +36,8 @@ class WBTestViewController: WBBaseViewController {
 
 extension WBTestViewController {
     //MARK: 重写父类方法
-    override func setupUI() {
-        super.setupUI()
+    override func setupTableView() {
+        super.setupTableView()
         
         navItem.rightBarButtonItem = UIBarButtonItem.init(title: "下一页", target: self, action: #selector(showNext))
 

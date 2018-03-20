@@ -69,7 +69,7 @@ extension WBBaseViewController {
     
     //MARK： 设置界面
     //注：swift4.0 子类要重写父类的extension方法，需要加@objc，否则报错"Declarations in extensions cannot override yet"
-   @objc func setupUI() {
+   @objc private func setupUI() {
     
     //取消自动缩进 如果隐藏了导航栏，会缩进20个点
         automaticallyAdjustsScrollViewInsets = false
@@ -79,16 +79,23 @@ extension WBBaseViewController {
     
     //MArk: 设置访客试图
     @objc func setupVisitorView(){
+        
         let visitorView = WBVisitorView.init(frame: view.bounds)
         view.insertSubview(visitorView, belowSubview: navBarView)
+        //1.设置访客视图字典
         visitorView.visitorInfo = visitorInfoDict
         
-        //设置访客视图监听方法
+        //2. 设置访客视图监听方法
         visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+        
+        //3.设置导航按钮
+        navItem.leftBarButtonItem = UIBarButtonItem.init(title: "注册", style: .plain, target: self, action: #selector(register))
+        navItem.rightBarButtonItem = UIBarButtonItem.init(title: "登录",style: .plain, target: self, action: #selector(login))
     }
     
-    //MARK： 设置表格视图
+    //MARK： 设置表格视图  --用户登录之后进行
+    //子类重写此方法，用户不需要关心登录之前的逻辑
     @objc func setupTableView() {
     tableView = UITableView.init(frame: view.bounds, style: .plain)
     view.insertSubview(tableView!, belowSubview: navBarView)

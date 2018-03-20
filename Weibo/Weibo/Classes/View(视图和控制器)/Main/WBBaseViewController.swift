@@ -117,6 +117,7 @@ extension WBBaseViewController {
     }
     
     //MARK： 设置导航条视图
+    
    private func setupNavigaitonBar() {
         //FIXME: 添加一个底层视图，矫正title显示位置
         navBarView.backgroundColor = UIColor.cz_color(withHex: 0xF6F6F6)
@@ -126,10 +127,12 @@ extension WBBaseViewController {
         navBarView.addSubview(navigationBar)
         //将item设置给bar
         navigationBar.items = [navItem]
-        //设置navigationBar 条子渲染颜色
+        //1. 设置navigationBar 条子渲染颜色
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
-        //设置navigationBar 标题颜色
-        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.lightGray]
+        //2. 设置navigationBar 标题颜色
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.darkGray]
+        //3. 设置字体颜色
+        navigationBar.tintColor = UIColor.orange
     }
 }
 

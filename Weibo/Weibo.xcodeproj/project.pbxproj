@@ -23,6 +23,7 @@
 		768B46C9204BEE9E0046D1CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768B46C8204BEE9E0046D1CB /* AppDelegate.swift */; };
 		768B46D0204BEE9E0046D1CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768B46CF204BEE9E0046D1CB /* Assets.xcassets */; };
 		76A1B7D42107899600FE05C0 /* WBNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A1B7D32107899600FE05C0 /* WBNetWorkManager.swift */; };
+		76A1B7D62108771100FE05C0 /* WBNetWorkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A1B7D52108771100FE05C0 /* WBNetWorkManager+Extension.swift */; };
 		76BC4179204EC6D600E5522B /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BC4162204EC6D600E5522B /* NSArray+Log.m */; };
 		76BC417A204EC6D600E5522B /* NSAttributedString+CZAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BC4164204EC6D600E5522B /* NSAttributedString+CZAdditon.m */; };
 		76BC417B204EC6D600E5522B /* NSObject+CZRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BC4166204EC6D600E5522B /* NSObject+CZRuntime.m */; };
@@ -58,6 +59,7 @@
 		768B46CF204BEE9E0046D1CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		768B46D4204BEE9E0046D1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76A1B7D32107899600FE05C0 /* WBNetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNetWorkManager.swift; sourceTree = "<group>"; };
+		76A1B7D52108771100FE05C0 /* WBNetWorkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetWorkManager+Extension.swift"; sourceTree = "<group>"; };
 		76BC4160204EC6D600E5522B /* CZAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZAdditions.h; sourceTree = "<group>"; };
 		76BC4161204EC6D600E5522B /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		76BC4162204EC6D600E5522B /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				76A1B7D32107899600FE05C0 /* WBNetWorkManager.swift */,
+				76A1B7D52108771100FE05C0 /* WBNetWorkManager+Extension.swift */,
 			);
 			path = AFNetwork;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				76BC417A204EC6D600E5522B /* NSAttributedString+CZAdditon.m in Sources */,
 				76BC4184204EC6D600E5522B /* UIViewController+CZAddition.m in Sources */,
 				76BC417C204EC6D600E5522B /* NSString+CZBase64.m in Sources */,
+				76A1B7D62108771100FE05C0 /* WBNetWorkManager+Extension.swift in Sources */,
 				763B4957204D4EAE00ECA116 /* WBBaseViewController.swift in Sources */,
 				763B495B204D4EF500ECA116 /* WBProfileViewController.swift in Sources */,
 				76618A572053990B002EC691 /* UIBarButtonItem+Extension.swift in Sources */,

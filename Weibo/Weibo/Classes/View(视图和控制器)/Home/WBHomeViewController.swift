@@ -28,17 +28,9 @@ class WBHomeViewController: WBBaseViewController {
     ///模拟 '延迟' 加载数据
     override func loadData() {
         
-        ///token演示：用网络工具加载
-        let url = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let params = ["access_token":"2.00fXeqaFRXwdnC58ac5de911LgkdlC"]
-        WBNetWorkManager.shared.request(URLString: url, parameters: params) { (json, isSuccess) in
+        WBNetWorkManager.shared.statusList { (json, isSuccess) in
             print("mandy-----------\(json)")
         }
-  
-//        WBNetWorkManager.shared.get(url, parameters: params, progress: nil, success: { (_, json) in
-//        }) { (_, error) in
-//            print("网络请求失败：\(error)")
-//        }
         
         print("开始加载数据")
         //尾随闭包里属性前加self区分语境， 从现在开始延迟1s时间

@@ -33,7 +33,7 @@ class WBBaseViewController: UIViewController {
     //上拉刷新标记
     var isPullUp:Bool = false
     //用户登录标记
-    var userLogon:Bool = false
+    var userLogon:Bool = true
     //访客视图信息字典
     var visitorInfoDict:[String:String]?
     

@@ -14,13 +14,14 @@ extension WBNetWorkManager {
     /// 加载微博数据字典
     ///
     /// - Parameter completion: 完成回调 lis[字典数组]，是否成功
-    func statusList(completion: @escaping (_ list:[[String : AnyObject]], _ isSuccess:Bool)->()) {
+    
+    func statusList(completion: @escaping (_ list:[[String : Any]]?, _ isSuccss:Bool)->()) {
         let url = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let params = ["access_token":"2.00fXeqaFRXwdnC58ac5de911LgkdlC"]
-        WBNetWorkManager.shared.request(URLString: url, parameters: params as [String : AnyObject]) { (json, isSuccess) in
-            
-            let result = json ["statuses"] as? [[String : AnyObject ]]
-            completion(result!, isSuccess)
-        }
+
+        
+        tokenRequest(URLString: url, parameters: nil) { (json, isSuccess) in
+            let result = (json as? [String : Any])?["statuses"] as? [[String: Any]]
+            completion(result, isSuccess)
+         }
     }
 }

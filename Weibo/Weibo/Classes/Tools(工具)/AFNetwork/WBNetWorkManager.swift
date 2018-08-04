@@ -20,20 +20,51 @@ class WBNetWorkManager: AFHTTPSessionManager {
     //闭包 在第一次访问时执行闭包，并且将结果保存到shared中
     static let shared = WBNetWorkManager()
     
+    //访问令牌，所有网络请求，都基于此令牌（登录除外）
+    //MARK:----if 里面的判断类型必须是Optional类型。
+
+    var access_token: String? = "2.00fXeqaFRXwdnC58ac5de911LgkdlC"
+    
+    //专门负责拼接token的网络方法
+    func tokenRequest(method: WBHTTPMethod = .GET, URLString: String,parameters: [String: Any]?,completion: @escaping (_ json: Any?, _ isSuccess: Bool)->()){
+        
+        //处理token字典
+        //0. 判断token是否为存在，如果为nil，应该新建一个字典
+        
+        guard let token = access_token else {
+            
+            print("没有 token! 需要登录")
+            
+            completion(nil, false)
+            return
+        }
+        
+        
+        //1. 判断参数字典是否为存在，如果为nil，应该新建一个字典
+        var parameters = parameters
+        if parameters == nil {
+            parameters = [String :AnyObject]()
+        }
+        //2.设置参数字典
+        parameters!["access_token"] = token
+        
+        //调用request发起真正的网络请求方法
+        request(URLString: URLString, parameters: parameters, completion: completion)
+        
+    }
     /// 封装AFN GET、POST网络请求方法
     /// - Parameters:
     ///   - method: GET/POST
     ///   - URLString:urlString
     ///   - parameters: 参数字典
     ///   - completion: 完成回调[json(字典数组),是否成功]
-    func request(method: WBHTTPMethod = .GET, URLString:String, parameters:[String: AnyObject]?, completion:@escaping (_ json: AnyObject, _ isSuccess: Bool)->() )  {
+    func request(method: WBHTTPMethod = .GET, URLString:String, parameters:[String: Any]?, completion:@escaping (_ json: Any, _ isSuccess: Bool)->() )  {
         //成功回调
         let success = { (task: URLSessionDataTask, json:Any)->() in
             completion(json as AnyObject, true)
         }
         //失败回调
         let failure = { (task: URLSessionDataTask?, error:Error)->() in
-            
             print("网络请求错误\(error)")
             completion("" as AnyObject, false)
         }

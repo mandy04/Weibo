@@ -6,7 +6,9 @@ target 'Weibo' do
   pod "AFNetworking"
   pod "FMDB"
   pod "YYModel"
-  pod "SVProgressHUD"
+  pod "SVProgressHUD"  
+  pod "SDWebImage"
+
   pod "pop"
 
 end

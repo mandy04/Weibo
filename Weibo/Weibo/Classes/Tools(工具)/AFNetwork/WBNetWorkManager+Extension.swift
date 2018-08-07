@@ -20,7 +20,7 @@ extension WBNetWorkManager {
         let url = "https://api.weibo.com/2/statuses/home_timeline.json"
         //swift中，int可以转成any，Int64不行
         let params = ["since_id":"\(since_id)",
-                      "max_id":"\(max_id)"]
+            "max_id":"\(max_id > 0 ? max_id - 1 : 0)"]
         
         tokenRequest(URLString: url, parameters: params) { (json, isSuccess) in
             let result = (json as? [String : Any])?["statuses"] as? [[String: Any]]

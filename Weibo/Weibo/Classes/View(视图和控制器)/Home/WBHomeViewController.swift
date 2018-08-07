@@ -13,37 +13,13 @@ private let cellId = "cellID"
 
 class WBHomeViewController: WBBaseViewController {
 
-   private lazy var statusList = [String]()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    // MARK: - 显示好友
-    @objc private func showFriends(){
-//        print(#function)
-        let vc = WBTestViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
+    
+  private lazy var listViewModel = WBStatusListViewModel()
     
     // MARK: - 设置表格假数据
     ///模拟 '延迟' 加载数据
     override func loadData() {
-        
-        WBNetWorkManager.shared.statusList { (json, isSuccess) in
-            print("mandy-----------\(json)")
-        }
-        
-        print("开始加载数据")
-        //尾随闭包里属性前加self区分语境， 从现在开始延迟1s时间
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-            for i in 0..<20 {
-                
-                if self.isPullUp {
-                    self.statusList.append("上拉数据\(i)")
-                }else{
-                    //将数据插入数组的顶部
-                    self.statusList.insert(i.description, at: 0)
-                }
-            }
+        listViewModel.loadData { (isSuccess) in
             print("结束数据")
             self.refreshControl?.endRefreshing()
             //恢复上拉标志
@@ -51,18 +27,26 @@ class WBHomeViewController: WBBaseViewController {
             self.tableView?.reloadData()
         }
     }
+    
+    // MARK: - 显示好友
+    @objc private func showFriends(){
+        //        print(#function)
+        let vc = WBTestViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 // MARK: - 实现代理
 extension WBHomeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statusList.count
+        return listViewModel.statusList.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //1. 取cell
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         //2.设置cell
-        cell.textLabel?.text = statusList[indexPath.row]
+        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
         //3.返回cell
         return cell
     }

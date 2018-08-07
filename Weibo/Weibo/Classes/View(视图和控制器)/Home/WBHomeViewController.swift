@@ -19,12 +19,16 @@ class WBHomeViewController: WBBaseViewController {
     // MARK: - 设置表格假数据
     ///模拟 '延迟' 加载数据
     override func loadData() {
-        listViewModel.loadStatus(pullUp: isPullUp) { (isSuccess) in
+        listViewModel.loadStatus(pullUp: isPullUp) { (isSuccess , shouldRefresh:Bool) in
             print("结束数据")
             self.refreshControl?.endRefreshing()
             //恢复上拉标志
             self.isPullUp = false
-            self.tableView?.reloadData()
+            
+            //刷新表格
+            if shouldRefresh {
+                self.tableView?.reloadData()
+            }
         }
     }
     

@@ -24,6 +24,7 @@ class WBNetWorkManager: AFHTTPSessionManager {
     //MARK:----if 里面的判断类型必须是Optional类型。
 
     var access_token: String? = "2.00fXeqaFRXwdnC58ac5de911LgkdlC"
+    var uid : String  = ""
     
     //专门负责拼接token的网络方法
     func tokenRequest(method: WBHTTPMethod = .GET, URLString: String,parameters: [String: Any]?,completion: @escaping (_ json: Any?, _ isSuccess: Bool)->()){

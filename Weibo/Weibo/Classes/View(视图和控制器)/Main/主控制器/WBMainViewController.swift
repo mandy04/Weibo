@@ -20,6 +20,11 @@ class WBMainViewController: UITabBarController {
 
         setUpChildViewControllers()
         setUpComposeButton()
+        
+        //测试微博未读数量
+        WBNetWorkManager.shared.unreadCount { (count) in
+            print("有 \(count) 条微博")
+        }
     }
     
    /*  portrait   竖屏，肖像

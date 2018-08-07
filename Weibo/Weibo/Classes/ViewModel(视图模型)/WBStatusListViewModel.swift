@@ -32,7 +32,10 @@ class WBStatusListViewModel {
     /// - Parameter completion: 完成回调[网络请求是否成功]
     func loadStatus(completion: @escaping (_ isSuccess : Bool) -> ()) {
         
-        WBNetWorkManager.shared.statusList { (list, isSuccess) in
+        //since_id 下拉，取出数组中第一条微博的id
+        let since_id = statusList.first?.id ?? 0
+        
+        WBNetWorkManager.shared.statusList(since_id: since_id, max_id: 0){ (list, isSuccess) in
             
            /// BUG：使用YYModel，字典中有值，但是字典转模型之后，模型中没有值：
           ///解决方法：在build setting -> swift 3 @objc inference -> on 然后在swift4里面就可以使用了
@@ -41,9 +44,10 @@ class WBStatusListViewModel {
                 completion(isSuccess)
                 return
             }
-
-            //2. 拼接数组
-            self.statusList += array
+            print("刷新到 \(array.count) 条数据")
+            //2. 拼接数组 FIXME:
+            //刷新数组，将结果数组拼接在数组前面
+            self.statusList = array + self.statusList
             
             //3. 完成回调
             completion(isSuccess)

@@ -29,16 +29,19 @@ class WBStatusListViewModel {
     
     /// 加载微博列表，完成回调
     ///
-    /// - Parameter completion: 完成回调[是否成功]
-    func loadData(completion: @escaping (_ isSuccess : Bool) -> ()) {
+    /// - Parameter completion: 完成回调[网络请求是否成功]
+    func loadStatus(completion: @escaping (_ isSuccess : Bool) -> ()) {
         
         WBNetWorkManager.shared.statusList { (list, isSuccess) in
+            
+           /// BUG：使用YYModel，字典中有值，但是字典转模型之后，模型中没有值：
+          ///解决方法：在build setting -> swift 3 @objc inference -> on 然后在swift4里面就可以使用了
             //1. 字典转模型
-            guard let array = NSArray.yy_modelArray(with: WBStatus.self, json: list ?? []) as? [WBStatus] else {
+            guard let array = NSArray.yy_modelArray(with: WBStatus.classForCoder(), json: list ?? []) as? [WBStatus] else {
                 completion(isSuccess)
                 return
             }
-            
+
             //2. 拼接数组
             self.statusList += array
             

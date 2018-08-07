@@ -19,7 +19,7 @@ class WBHomeViewController: WBBaseViewController {
     // MARK: - 设置表格假数据
     ///模拟 '延迟' 加载数据
     override func loadData() {
-        listViewModel.loadData { (isSuccess) in
+        listViewModel.loadStatus { (isSuccess) in
             print("结束数据")
             self.refreshControl?.endRefreshing()
             //恢复上拉标志

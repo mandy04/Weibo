@@ -17,10 +17,10 @@ extension WBNetWorkManager {
     
     func statusList(completion: @escaping (_ list:[[String : Any]]?, _ isSuccss:Bool)->()) {
         let url = "https://api.weibo.com/2/statuses/home_timeline.json"
-
         
         tokenRequest(URLString: url, parameters: nil) { (json, isSuccess) in
             let result = (json as? [String : Any])?["statuses"] as? [[String: Any]]
+
             completion(result, isSuccess)
          }
     }

@@ -63,8 +63,11 @@ extension WBMainViewController {
         WBNetWorkManager.shared.unreadCount { (count) in
             print("有 \(count) 条微博")
             
-            //设置首页 tabBarItem的badgeNumber
+            //设置 首页 tabBarItem的badgeNumber
             self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
+            
+            //设置 App 的bagdeNumber , iOS8.0之后用户授权图标上才显示
+            UIApplication.shared.applicationIconBadgeNumber = count
         }
     }
 }

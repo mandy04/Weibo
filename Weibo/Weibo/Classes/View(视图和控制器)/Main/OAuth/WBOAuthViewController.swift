@@ -8,6 +8,7 @@
 
 import UIKit
 
+//通过 WebView加载新浪微博授权页面控制器
 class WBOAuthViewController: UIViewController {
 
     private lazy var webView = UIWebView()

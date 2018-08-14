@@ -8,6 +8,10 @@
 
 import UIKit
 
+
+//button的Normal使用
+//   btn.setTitle("123", for: [])
+//   btn.setTitleColor(UIColor .red, for: [])
 extension UIBarButtonItem {
     
     /// 抽取UIBarButtonItem
@@ -22,7 +26,7 @@ extension UIBarButtonItem {
         
         let btn : UIButton = UIButton.cz_textButton(title, fontSize: fontSize, normalColor: UIColor.lightGray, highlightedColor: UIColor.orange)
         btn.addTarget(target, action: action, for: .touchUpInside)
-        
+    
         if isBack {
             let image = "navigationbar_back_withtext"
             btn.setImage(UIImage(named:image), for: UIControlState(rawValue: 0))

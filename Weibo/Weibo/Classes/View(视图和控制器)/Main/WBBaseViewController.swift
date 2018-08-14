@@ -57,6 +57,8 @@ class WBBaseViewController: UIViewController {
 extension WBBaseViewController {
     @objc func login() {
         print("登录")
+        //发送通知
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
     }
     @objc func register() {
         print("注册")

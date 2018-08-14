@@ -39,6 +39,7 @@
 		76BC4183204EC6D600E5522B /* UIView+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BC4176204EC6D600E5522B /* UIView+CZAddition.m */; };
 		76BC4184204EC6D600E5522B /* UIViewController+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BC4178204EC6D600E5522B /* UIViewController+CZAddition.m */; };
 		76F98CE82122A21F005D4613 /* WeiBoCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F98CE72122A21F005D4613 /* WeiBoCommon.swift */; };
+		76F98CEB2122A6F5005D4613 /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F98CEA2122A6F5005D4613 /* WBOAuthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		76BC4178204EC6D600E5522B /* UIViewController+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CZAddition.m"; sourceTree = "<group>"; };
 		76BC4185204EC71100E5522B /* Weibo-bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-bridge.h"; sourceTree = "<group>"; };
 		76F98CE72122A21F005D4613 /* WeiBoCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiBoCommon.swift; sourceTree = "<group>"; };
+		76F98CEA2122A6F5005D4613 /* WBOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 		763B494E204D4DF800ECA116 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				76F98CE92122A6AE005D4613 /* OAuth */,
 				76ADCD942055157500CE5A1C /* 主控制器 */,
 				763B4956204D4EAE00ECA116 /* WBBaseViewController.swift */,
 			);
@@ -303,6 +306,14 @@
 				76BC4178204EC6D600E5522B /* UIViewController+CZAddition.m */,
 			);
 			path = Additions;
+			sourceTree = "<group>";
+		};
+		76F98CE92122A6AE005D4613 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				76F98CEA2122A6F5005D4613 /* WBOAuthViewController.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 		B0686D28E8CC4022A1F17B4B /* Frameworks */ = {
@@ -470,6 +481,7 @@
 				76BC417E204EC6D600E5522B /* NSString+CZPath.m in Sources */,
 				76BC4183204EC6D600E5522B /* UIView+CZAddition.m in Sources */,
 				76A1B7D42107899600FE05C0 /* WBNetWorkManager.swift in Sources */,
+				76F98CEB2122A6F5005D4613 /* WBOAuthViewController.swift in Sources */,
 				76BC417D204EC6D600E5522B /* NSString+CZHash.m in Sources */,
 				768B46C9204BEE9E0046D1CB /* AppDelegate.swift in Sources */,
 			);

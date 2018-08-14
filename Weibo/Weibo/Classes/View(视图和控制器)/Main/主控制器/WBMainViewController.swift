@@ -53,12 +53,20 @@ class WBMainViewController: UITabBarController {
 
 //MARK： 时钟相关方法
 extension WBMainViewController {
+    
+    //时间设置长一些
     private func setUpTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     //时钟触发方法
     @objc func updateTimer() {
+        
+        //用户未登录，return
+        if !WBNetWorkManager.shared.userLogon {
+            return
+        }
+        
         //测试微博未读数量
         WBNetWorkManager.shared.unreadCount { (count) in
             print("有 \(count) 条微博")

@@ -19,7 +19,7 @@ import UIKit
 
 ///所有控制器的基类
 class WBBaseViewController: UIViewController {
-
+    
     //设置底层视图
     let navBarView = UIView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
     //设置导航条
@@ -32,15 +32,14 @@ class WBBaseViewController: UIViewController {
     var refreshControl: UIRefreshControl?
     //上拉刷新标记
     var isPullUp:Bool = false
-    //用户登录标记
-    var userLogon:Bool = true
     //访客视图信息字典
     var visitorInfoDict:[String:String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loadData()
+        //判断用户登录加载数据，否则不加载
+        WBNetWorkManager.shared.userLogon ? loadData() : ()
     }
     //基类设置加载数据
     @objc func loadData() {
@@ -74,7 +73,7 @@ extension WBBaseViewController {
     //取消自动缩进 如果隐藏了导航栏，会缩进20个点
         automaticallyAdjustsScrollViewInsets = false
         setupNavigaitonBar()
-        userLogon ? setupTableView() : setupVisitorView()
+        WBNetWorkManager.shared.userLogon ? setupTableView() : setupVisitorView()
     }
     
     //MArk: 设置访客试图

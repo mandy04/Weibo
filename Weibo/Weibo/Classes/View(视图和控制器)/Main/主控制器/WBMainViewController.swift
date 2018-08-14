@@ -72,6 +72,24 @@ extension WBMainViewController {
     }
 }
 
+
+// MARK: - UITabBarControllerDelegate
+extension WBMainViewController : UITabBarControllerDelegate {
+    
+    
+    /// 将要选择tabbarItem
+    ///
+    /// - Parameters:
+    ///   - tabBarController
+    ///   - viewController
+    /// - Returns: 判断目标控制器是否是UIViewController
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        print("将要选择:\(viewController)")
+      //如果是这个类不加载；不是这个类加载；
+        return !viewController.isMember(of: UIViewController.self)
+    }
+}
+
 //使用extensions进行切分代码块
 //MARK: 设置界面
 extension WBMainViewController {
@@ -83,7 +101,7 @@ extension WBMainViewController {
         //计算每一个item宽度
         let count = CGFloat(childViewControllers.count)
         //将向内缩进的宽度减小，能够让按钮的宽度变大，遮住容错点
-        let w = tabBar.frame.width / count - 1
+        let w = tabBar.frame.width / count
         
         //设置composeButton的位置 缩进2个item的宽度  CGRectInset 正数向内缩进，负数向外扩展
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)

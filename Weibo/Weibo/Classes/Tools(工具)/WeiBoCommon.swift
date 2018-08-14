@@ -14,7 +14,7 @@ let WBAppKey = "2894817214"
 //应用程序加密信息（开发者可以申请修改）
 let WBAppSecret = "20ad0507c4ed686ac26e504f8a613da0"
 //回调url，登录完成跳转的URL， 参数以get拼接
-let WBRedirect_uri = "www.baidu.com"
+let WBRedirectURL = "www.baidu.com"
 
 
 /// MARK --全局通知定义

@@ -23,6 +23,19 @@ class WBOAuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //加载授权页面
+        let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(WBAppKey)&redirect_uri=\(WBRedirectURL)"
+        
+        //1. 确认访问资源
+        guard let url = URL.init(string: urlString) else{
+          return
+        }
+        //2. 建立请求
+        let request = URLRequest.init(url: url)
+        
+        //3. 访问请求
+        webView.loadRequest(request)        
     }
     //返回
     @objc private func close() {

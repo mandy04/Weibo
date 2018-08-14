@@ -23,7 +23,7 @@ class WBNetWorkManager: AFHTTPSessionManager {
     //访问令牌，所有网络请求，都基于此令牌（登录除外）
     //MARK:----if 里面的判断类型必须是Optional类型。
 
-    var access_token: String? //= "2.00fXeqaFRXwdnC58ac5de911LgkdlC"
+    var access_token: String? = "2.00fXeqaFRXwdnC58ac5de911LgkdlC"
     var uid : String  = ""
     
     //用户登录标记 [计算型属性]

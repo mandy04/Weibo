@@ -16,6 +16,8 @@ class WBOAuthViewController: UIViewController {
     override func loadView() {
         view = webView
         view.backgroundColor = UIColor.white
+        //设置代理
+        webView.delegate = self
         //设置导航栏
         title = "登录新浪微博"
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", target: self, action: #selector(close), isBack: true)
@@ -52,5 +54,25 @@ class WBOAuthViewController: UIViewController {
     //返回
     @objc private func close() {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK --遵守协议
+extension WBOAuthViewController : UIWebViewDelegate {
+    ///webView将要加载请求
+    ///
+    /// - Parameters:
+    ///   - webView: webView
+    ///   - request: 要加载的请求
+    ///   - navigationType: 导航类型
+    /// - Returns: 是否加载request
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+        //确定思路：
+        //1. 如果请求地址中包含http://baidu.com不加载页面，否则加载页面
+        print("加载请求-----\(String(describing: request.url?.absoluteString))")
+        //2. 从http://baidu.com地址中查看是否包含 ‘code=’
+        //如果有，授权成功；否则，授权失败
+        return true
     }
 }

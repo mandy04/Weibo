@@ -11,6 +11,9 @@ import UIKit
 //主控制器
 class WBMainViewController: UITabBarController {
 
+    //定时器
+    private var timer: Timer?
+    
     //MARK： 私有控件
     //撰写按钮
     private lazy var composeButton:UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add",
@@ -20,11 +23,12 @@ class WBMainViewController: UITabBarController {
 
         setUpChildViewControllers()
         setUpComposeButton()
-        
-        //测试微博未读数量
-        WBNetWorkManager.shared.unreadCount { (count) in
-            print("有 \(count) 条微博")
-        }
+        setUpTimer()
+    }
+    
+    deinit{
+        //销毁时钟
+        timer?.invalidate()
     }
     
    /*  portrait   竖屏，肖像
@@ -47,6 +51,23 @@ class WBMainViewController: UITabBarController {
     }
 }
 
+//MARK： 时钟相关方法
+extension WBMainViewController {
+    private func setUpTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    //时钟触发方法
+    @objc func updateTimer() {
+        //测试微博未读数量
+        WBNetWorkManager.shared.unreadCount { (count) in
+            print("有 \(count) 条微博")
+            
+            //设置首页 tabBarItem的badgeNumber
+            self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
+        }
+    }
+}
 
 //使用extensions进行切分代码块
 //MARK: 设置界面

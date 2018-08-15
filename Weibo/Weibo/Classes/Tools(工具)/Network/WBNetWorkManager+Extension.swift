@@ -59,7 +59,7 @@ extension WBNetWorkManager {
                       "client_secret":WBAppSecret,
                       "grant_type":"authorization_code",
                       "code":code,
-                      "redirect_uri":WBRedirectURL,
+                      "redirect_uri":WBRedirectURI,
                       ]
         //发起请求
         request(method: .POST, URLString: urlString, parameters: params) { (json, isSuccess) in

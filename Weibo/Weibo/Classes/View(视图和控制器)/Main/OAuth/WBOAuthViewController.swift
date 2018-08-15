@@ -85,7 +85,7 @@ extension WBOAuthViewController : UIWebViewDelegate {
         //1. 如果请求地址中包含http://baidu.com不加载页面，否则加载页面
         print("加载请求-----\(String(describing: request.url?.absoluteString))")
         // request.url?.absoluteString.hasPrefix(WBRedirectURL) 返回的是可选项  true/false/nil
-        if request.url?.absoluteString.hasPrefix(WBRedirectURL) == false {
+        if request.url?.absoluteString.hasPrefix(WBRedirectURI) == false {
             return true
         }
         //2. 从http://baidu.com地址中查看是否包含 ‘code=’

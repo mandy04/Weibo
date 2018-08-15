@@ -12,7 +12,7 @@ import YYModel
 //用户账户信息
 class WBUserAccount: NSObject {
     //访问令牌  所有网络请求（登录除外）都基于
-    var access_Token: String?
+    var access_Token: String?  //= "2.00fXeqaFRXwdnC58ac5de911LgkdlC"
     //用户代号
     var uid: String?
     //开发者 5年

@@ -32,12 +32,11 @@ class WBNetWorkManager: AFHTTPSessionManager {
     
     //访问令牌，所有网络请求，都基于此令牌（登录除外）
     //MARK:----if 里面的判断类型必须是Optional类型。
-    var access_token: String? //= "2.00fXeqaFRXwdnC58ac5de911LgkdlC"
-    var uid : String  = "2683946091"
+    lazy var userAccount = WBUserAccount()
     
     //用户登录标记 [计算型属性]
     var userLogon : Bool {
-        return access_token != nil
+        return userAccount.access_Token != nil
     }
     
     
@@ -47,7 +46,7 @@ class WBNetWorkManager: AFHTTPSessionManager {
         //处理token字典
         //0. 判断token是否为存在，如果为nil，应该新建一个字典
         
-        guard let token = access_token else {
+        guard let token = userAccount.access_Token else {
             //FIXME:发送通知，提示用户登录
             print("没有 token! 需要登录")
             

@@ -31,7 +31,7 @@ class WBOAuthViewController: UIViewController {
         super.viewDidLoad()
         
         //加载授权页面
-        let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(WBAppKey)&redirect_uri=\(WBRedirectURL)"
+        let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(WBAppKey)&redirect_uri=\(WBRedirectURI)"
         
         //1. 确认访问资源
         guard let url = URL.init(string: urlString) else{
@@ -85,7 +85,7 @@ extension WBOAuthViewController : UIWebViewDelegate {
         //1. 如果请求地址中包含http://baidu.com不加载页面，否则加载页面
         print("加载请求-----\(String(describing: request.url?.absoluteString))")
         // request.url?.absoluteString.hasPrefix(WBRedirectURL) 返回的是可选项  true/false/nil
-        if request.url?.absoluteString.hasPrefix(WBRedirectURL) ==  false {
+        if request.url?.absoluteString.hasPrefix(WBRedirectURL) == false {
             return true
         }
         //2. 从http://baidu.com地址中查看是否包含 ‘code=’
@@ -97,12 +97,12 @@ extension WBOAuthViewController : UIWebViewDelegate {
         }
         //3. 从query字符串中取得授权码
         //代码走到此处，url 中一定有 查询字符串，并且包含“code=”
-        let code  = request.url?.query?.substring(from: "code=".endIndex) ?? ""
+        let code = request.url?.query?.substring(from: "code=".endIndex) ?? ""
         print("授权码 - \(code)")
         
         //4.使用授权码获取AccessToken
         WBNetWorkManager.shared.loadAccessToken(code: code)
-
+        
         return false
     }
 

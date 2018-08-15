@@ -18,13 +18,23 @@ class WBNetWorkManager: AFHTTPSessionManager {
 
     ///静态区 常量 不可修改
     //闭包 在第一次访问时执行闭包，并且将结果保存到shared中
-    static let shared = WBNetWorkManager()
+    
+    static let shared: WBNetWorkManager = {
+        
+        //实例化对象
+        let instance = WBNetWorkManager()
+        
+        //设置AFN反序列化对象支持的数据类型
+        instance.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        
+        return instance
+    }()
     
     //访问令牌，所有网络请求，都基于此令牌（登录除外）
     //MARK:----if 里面的判断类型必须是Optional类型。
 
     var access_token: String? //= "2.00fXeqaFRXwdnC58ac5de911LgkdlC"
-    var uid : String  = ""
+    var uid : String  = "2683946091"
     
     //用户登录标记 [计算型属性]
     var userLogon : Bool {

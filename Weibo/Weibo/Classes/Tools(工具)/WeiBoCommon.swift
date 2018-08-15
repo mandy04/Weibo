@@ -10,11 +10,11 @@ import Foundation
 
 //MARK： -应用程序信息
 //应用程序ID
-let WBAppKey = "2894817214"
+let WBAppKey = "1629409877"
 //应用程序加密信息（开发者可以申请修改）
-let WBAppSecret = "20ad0507c4ed686ac26e504f8a613da0"
+let WBAppSecret = "a88bd3671421588aa101723b2702d84e"
 //回调url，登录完成跳转的URL， 参数以get拼接
-let WBRedirectURL = "www.baidu.com"
+let WBRedirectURI = "http://baidu.com"
 
 
 /// MARK --全局通知定义

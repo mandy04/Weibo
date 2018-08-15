@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 //通过 WebView加载新浪微博授权页面控制器
 class WBOAuthViewController: UIViewController {
@@ -16,6 +17,8 @@ class WBOAuthViewController: UIViewController {
     override func loadView() {
         view = webView
         view.backgroundColor = UIColor.white
+        //取消滚动视图  --新浪微博的服务器，返回的授权页面默认就是手机全屏
+        webView.scrollView.isScrollEnabled = false
         //设置代理
         webView.delegate = self
         //设置导航栏
@@ -53,6 +56,8 @@ class WBOAuthViewController: UIViewController {
     }
     //返回
     @objc private func close() {
+        //关闭指示器
+        SVProgressHUD.dismiss()
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -96,5 +101,12 @@ extension WBOAuthViewController : UIWebViewDelegate {
         print("授权码 - \(code)")
 
         return false
+    }
+
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        SVProgressHUD.show()
+    }
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        SVProgressHUD.dismiss()
     }
 }

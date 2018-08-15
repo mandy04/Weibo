@@ -30,8 +30,7 @@ class WBNetWorkManager: AFHTTPSessionManager {
         return instance
     }()
     
-    //访问令牌，所有网络请求，都基于此令牌（登录除外）
-    //MARK:----if 里面的判断类型必须是Optional类型。
+    //用户账户的懒加载属性
     lazy var userAccount = WBUserAccount()
     
     //用户登录标记 [计算型属性]

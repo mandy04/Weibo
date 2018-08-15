@@ -65,14 +65,36 @@ extension WBOAuthViewController : UIWebViewDelegate {
     ///   - webView: webView
     ///   - request: 要加载的请求
     ///   - navigationType: 导航类型
-    /// - Returns: 是否加载request
+    /// - Returns: 是否加载request   返回YES允许加载，返回NO不允许加载
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+//        print("-----\(request.url)")
+        /**知识补充：meituan:///showP1:P2:P3:P4:/大西瓜/红牛/小樱桃/小肥羊
+         **  request.url?.scheme 协议头  meituan
+         **  request.url?.host  主机头 nil,如果没有///
+         **  request.url?.pathComponents  返回数组，URL中所有路径的数组【showP1:P2:P3:P4 ，大西瓜， 红牛， 小樱桃， 小肥羊 】
+         **  request.url?.query  查询字符串，URL中？后面的内容
+         **/
         
         //确定思路：
         //1. 如果请求地址中包含http://baidu.com不加载页面，否则加载页面
         print("加载请求-----\(String(describing: request.url?.absoluteString))")
+        // request.url?.absoluteString.hasPrefix(WBRedirectURL) 返回的是可选项  true/false/nil
+        if request.url?.absoluteString.hasPrefix(WBRedirectURL) ==  false {
+            return true
+        }
         //2. 从http://baidu.com地址中查看是否包含 ‘code=’
         //如果有，授权成功；否则，授权失败
-        return true
+        if request.url?.query?.hasPrefix("code=") == false {
+            print("取消授权")
+            close()
+            return false
+        }
+        //3. 从query字符串中取得授权码
+        //代码走到此处，url 中一定有 查询字符串，并且包含“code=”
+        let code  = request.url?.query?.substring(from: "code=".endIndex) ?? ""
+        print("授权码 - \(code)")
+
+        return false
     }
 }

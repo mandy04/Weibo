@@ -99,6 +99,9 @@ extension WBOAuthViewController : UIWebViewDelegate {
         //代码走到此处，url 中一定有 查询字符串，并且包含“code=”
         let code  = request.url?.query?.substring(from: "code=".endIndex) ?? ""
         print("授权码 - \(code)")
+        
+        //4.使用授权码获取AccessToken
+        WBNetWorkManager.shared.loadAccessToken(code: code)
 
         return false
     }

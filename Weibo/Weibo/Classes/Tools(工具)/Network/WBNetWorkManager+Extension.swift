@@ -65,8 +65,10 @@ extension WBNetWorkManager {
         request(method: .POST, URLString: urlString, parameters: params) { (json, isSuccess) in
             print("获取AccessToken - \(json) ")
             //直接用字典设置 userAccount 的属性
-            self.userAccount.yy_modelSet(with: (json as? [String : Any]) ??  [:])
+            self.userAccount.yy_modelSet(with: (json as? [String : Any]) ?? [:])
             print(self.userAccount)
+            
+            self.userAccount.saveAccount()
         }
         
     }

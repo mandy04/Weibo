@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import YYModel
 
 //用户账户信息
-class WBUserAccount: NSObject {
+@objcMembers class WBUserAccount: NSObject {
     //访问令牌  所有网络请求（登录除外）都基于
-    var access_Token: String?  //= "2.00fXeqaFRXwdnC58ac5de911LgkdlC"
+    var access_token: String?  //= "2.00fXeqaFRXwdnC58ac5de911LgkdlC"
     //用户代号
     var uid: String?
     //开发者 5年 ，每次登录之后，都是5年
@@ -29,12 +28,41 @@ class WBUserAccount: NSObject {
     override var description: String {
         return yy_modelDescription()
     }
+    
     /**1. 偏好设置（存小）
      * 2. 沙盒 -归档/json/plist
      * 3. 数据库  FMDB/CoreData
      * 4. 钥匙串访问（存小/自动加密 -需要使用框架SSKeyChain）
      */
     func saveAccount() {
-        
+        //1. 模型转字典
+        var dict = (self.yy_modelToJSONObject() as? [String : Any]) ?? [:]
+         //删除expires_in
+        dict.removeValue(forKey: "expires_in")
+        //2. 字典序列化  转Data
+        guard let data = try? JSONSerialization.data(withJSONObject: dict, options: []),
+              let filePath = ("useraccount.json" as NSString).cz_appendDocumentDir()
+        else {
+            return
+        }
+        print("用户账户保存成功\(filePath)")
+
+        //3. 写入磁盘
+        (data as NSData).write(toFile: filePath, atomically: true)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

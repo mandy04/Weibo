@@ -32,10 +32,18 @@ private let accountFile: NSString = "useraccount.json"
     }
     
     override init() {
-        
+        super.init()
         //从磁盘中加载保存的文件--字典
+        //1. 加载磁盘文件到二进制数据，如果失败直接返回
+        guard let filePath = accountFile.cz_appendDocumentDir(),
+        let data = NSData.init(contentsOfFile: filePath),
+            let dict = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [String : Any] else {
+                return
+        }
+        //2. 使用字典设置属性值
+        yy_modelSet(with: dict ?? [:])
         
-        //使用字典设置属性值
+        print("从沙盒加载用户信息\(self)")
     }
     
     /**1. 偏好设置（存小）

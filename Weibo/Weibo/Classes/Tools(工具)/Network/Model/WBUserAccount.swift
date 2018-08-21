@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let accountFile: NSString = "useraccount.json"
+
 //用户账户信息
 @objcMembers class WBUserAccount: NSObject {
     //访问令牌  所有网络请求（登录除外）都基于
@@ -29,6 +31,13 @@ import UIKit
         return yy_modelDescription()
     }
     
+    override init() {
+        
+        //从磁盘中加载保存的文件--字典
+        
+        //使用字典设置属性值
+    }
+    
     /**1. 偏好设置（存小）
      * 2. 沙盒 -归档/json/plist
      * 3. 数据库  FMDB/CoreData
@@ -41,7 +50,7 @@ import UIKit
         dict.removeValue(forKey: "expires_in")
         //2. 字典序列化  转Data
         guard let data = try? JSONSerialization.data(withJSONObject: dict, options: []),
-              let filePath = ("useraccount.json" as NSString).cz_appendDocumentDir()
+              let filePath = accountFile.cz_appendDocumentDir()
         else {
             return
         }

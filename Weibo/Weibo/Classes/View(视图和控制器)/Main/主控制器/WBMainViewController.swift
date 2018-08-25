@@ -26,6 +26,9 @@ class WBMainViewController: UITabBarController {
         setUpComposeButton()
         setUpTimer()
         
+        //设置新特性视图
+        setupNewFeatureViews()
+        
         //设置代理
         delegate = self
         
@@ -87,6 +90,27 @@ class WBMainViewController: UITabBarController {
     @objc private func composeStatus() {
         print("撰写微博")
         
+    }
+}
+
+
+// MARK: - 新特性视图处理
+extension WBMainViewController {
+    
+    private func setupNewFeatureViews() {
+     
+        //1. 如果更新，显示新特性；否则显示欢迎界面
+        let v = isNewVersion ? WBNewFeatureView() : WBWelcomView()
+        
+        //2. 添加视图
+        v.frame = view.frame
+        
+        view.addSubview(v)
+    }
+    
+    //extension中可以有计算型属性，不会占用存储空间
+    var isNewVersion: Bool {
+        return true
     }
 }
 

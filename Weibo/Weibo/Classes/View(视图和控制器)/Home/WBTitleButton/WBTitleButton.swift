@@ -18,7 +18,7 @@ class WBTitleButton: UIButton {
         if title == nil {
             setTitle("首页", for: [])
         }else {
-            setTitle(title, for: [])
+            setTitle(title! + "", for: [])
             
             //设置图像
             setImage(UIImage.init(named: "navigationbar_arrow_down"), for: [])
@@ -33,8 +33,29 @@ class WBTitleButton: UIButton {
         sizeToFit()
 }
     
+    ///重新布局子视图
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        //判断titleLabel 和imageView 是否同时存在
+        guard let titleLabel = titleLabel,
+              let imageView = imageView else {
+            return
+        }
+        if imageView.frame.origin.x != 0 {
+            // 已调整过，不用再调整布局
+            return;
+        }
+        
+        print("\(titleLabel) \(imageView)")
+        print("调整按钮布局")
+        //将label的x向左移动imageView的宽度
+        titleLabel.frame = titleLabel.frame.offsetBy(dx: -imageView.bounds.width, dy: 0)
+        //将iamgeview的x向右移动titleLabel的宽度
+        imageView.frame = imageView.frame.offsetBy(dx: titleLabel.bounds.width, dy: 0)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

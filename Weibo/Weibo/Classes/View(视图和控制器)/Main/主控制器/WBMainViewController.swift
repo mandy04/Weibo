@@ -100,10 +100,7 @@ extension WBMainViewController {
     private func setupNewFeatureViews() {
      
         //1. 如果更新，显示新特性；否则显示欢迎界面
-        let v = isNewVersion ? WBNewFeatureView() : WBWelcomView()
-        
-        //2. 添加视图
-        v.frame = view.frame
+        let v = isNewVersion ? WBNewFeatureView() : WBWelcomeView.welcomeView()
         
         view.addSubview(v)
     }

@@ -8,16 +8,19 @@
 
 import UIKit
 
-class WBWelcomView: UIView {
+class WBWelcomeView: UIView {
 
-    override init(frame: CGRect) {
-        super.init(frame: CGRect())
-        backgroundColor = UIColor.green
+    class func welcomeView() -> WBWelcomeView {
+        
+        let nib = UINib(nibName: "WBWelcomeView", bundle: nil)
+        
+        let v = nib.instantiate(withOwner: nil, options: nil)[0] as! WBWelcomeView
+        
+        // 从 XIB 加载的视图，默认是 600 * 600
+        v.frame = UIScreen.main.bounds
+        
+        return v
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-
+   
 }

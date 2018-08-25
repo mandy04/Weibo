@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WBWelcomeView" customModule="Weibo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad_background" translatesAutoresizingMaskIntoConstraints="NO" id="RZp-v9-HC2">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_default_big" translatesAutoresizingMaskIntoConstraints="NO" id="JW6-pW-h9J">
+                    <rect key="frame" x="145" y="422" width="85" height="85"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="85" id="SEZ-3L-hbQ"/>
+                        <constraint firstAttribute="height" constant="85" id="SuO-RW-eaV"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="欢迎归来~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08E-sI-UD7">
+                    <rect key="frame" x="147" y="519" width="80" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="RZp-v9-HC2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0AL-3H-OFH"/>
+                <constraint firstItem="RZp-v9-HC2" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="1FG-ch-Us7"/>
+                <constraint firstItem="RZp-v9-HC2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1dk-Uj-qNa"/>
+                <constraint firstAttribute="bottom" secondItem="JW6-pW-h9J" secondAttribute="bottom" constant="160" id="BXd-j8-kl9"/>
+                <constraint firstItem="JW6-pW-h9J" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZgW-2N-dht"/>
+                <constraint firstItem="RZp-v9-HC2" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="fIG-ra-Rbx"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="89.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ad_background" width="375" height="667"/>
+        <image name="avatar_default_big" width="85" height="85"/>
+    </resources>
+</document>

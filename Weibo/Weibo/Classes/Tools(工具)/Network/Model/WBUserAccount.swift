@@ -23,7 +23,10 @@ private let accountFile: NSString = "useraccount.json"
             expiresDate = Date(timeIntervalSinceNow: expires_in) as NSDate
         }
     }
-    
+    ///用户昵称
+    var screen_name: String?
+    ///用户头像地址（大图），180×180像素
+    var avatar_large: String?
     //过期日期
     var expiresDate: NSDate?
     

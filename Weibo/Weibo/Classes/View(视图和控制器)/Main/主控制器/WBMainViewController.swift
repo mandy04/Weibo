@@ -46,12 +46,12 @@ class WBMainViewController: UITabBarController {
         
         print("用户登录通知 \(n)")
         
-        var when = DispatchTime.now()
+        var when = DispatchTime.now()+5
         
         //判断n.object 是否有值，如果有，->token过期，提示用户重新登录
         if n.object != nil {
             //设置指示器样式
-            SVProgressHUD.setDefaultMaskType(.black)
+            SVProgressHUD.setDefaultMaskType(.gradient)
             
             SVProgressHUD.showInfo(withStatus: "用户登录超时，需要重新登录")
             //修改延迟时间

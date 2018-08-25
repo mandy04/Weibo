@@ -91,7 +91,6 @@ class WBNetWorkManager: AFHTTPSessionManager {
                 //发送通知，提示用户再次登录（谁接收到通知，谁处理！！）
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification),
                                                 object: nil)
-
             }
             print("网络请求错误\(error)")
             completion("" as AnyObject, false)

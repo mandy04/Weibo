@@ -95,5 +95,24 @@ extension WBHomeViewController {
 
         //注册cell
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        
+        setupNavTitle()
+    }
+    
+    /// 设置导航栏标题
+    private func setupNavTitle() {
+        
+        let button = UIButton.cz_textButton("春哥", fontSize: 17, normalColor: UIColor.darkGray, highlightedColor: UIColor.black)
+        
+        button?.setImage(UIImage.init(named: "navigationbar_arrow_down"), for: [])
+        button?.setImage(UIImage.init(named: "navigationbar_arrow_up"), for: .selected)
+        
+        navItem.titleView = button
+        
+        button?.addTarget(self, action: #selector(clickTitleButton(btn:)), for: .touchUpInside)
+    }
+    
+    @objc func clickTitleButton(btn:UIButton){
+        btn.isSelected = !btn.isSelected
     }
 }

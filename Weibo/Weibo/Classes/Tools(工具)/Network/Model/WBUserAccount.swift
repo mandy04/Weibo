@@ -42,8 +42,19 @@ private let accountFile: NSString = "useraccount.json"
         }
         //2. 使用字典设置属性值
         yy_modelSet(with: dict ?? [:])
-        
         print("从沙盒加载用户信息\(self)")
+        
+        //判断token是否过期
+        //往前推算一天  -3600 * 24
+//        expiresDate = Date.init(timeIntervalSinceNow: -3600 * 24) as NSDate
+//        print("模拟过期时间---\(String(describing: expiresDate))")
+        if expiresDate?.compare(Date()) != .orderedDescending {
+            print("账户过期")
+            access_token = nil
+            uid = nil
+            //清空缓存账户信息
+            try? FileManager.default.removeItem(atPath: filePath)
+        }
     }
     
     /**1. 偏好设置（存小）

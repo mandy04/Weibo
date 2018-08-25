@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 //主控制器
 class WBMainViewController: UITabBarController {
@@ -42,11 +43,31 @@ class WBMainViewController: UITabBarController {
     
     //监听方法:
     @objc private func userLogin(n: Notification) {
+        
         print("用户登录通知 \(n)")
         
-      //展现登录控制器  --通常会和UINavigationController连用，方便返回
-        let nav = UINavigationController.init(rootViewController: WBOAuthViewController())
-        present(nav, animated: true, completion: nil)
+        var when = DispatchTime.now()
+        
+        //判断n.object 是否有值，如果有，->token过期，提示用户重新登录
+        if n.object != nil {
+            //设置指示器样式
+            SVProgressHUD.setDefaultMaskType(.black)
+            
+            SVProgressHUD.showInfo(withStatus: "用户登录超时，需要重新登录")
+            //修改延迟时间
+            when = DispatchTime.now() + 2
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            
+            SVProgressHUD.setDefaultMaskType(.clear)
+            
+            //展现登录控制器  --通常会和UINavigationController连用，方便返回
+            let nav = UINavigationController.init(rootViewController: WBOAuthViewController())
+            
+            self.present(nav, animated: true, completion: nil)
+        }
+        
     }
     
    /*  portrait   竖屏，肖像

@@ -14,6 +14,10 @@ class WBDiscoverViewController: WBBaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //模拟token 过期情况
+        WBNetWorkManager.shared.userAccount.access_token = "bad token "   //nil
+        print("修改了token")
     }
 
     override func didReceiveMemoryWarning() {

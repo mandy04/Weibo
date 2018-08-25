@@ -102,7 +102,9 @@ extension WBHomeViewController {
     /// 设置导航栏标题
     private func setupNavTitle() {
         
-        let button = UIButton.cz_textButton("春哥", fontSize: 17, normalColor: UIColor.darkGray, highlightedColor: UIColor.black)
+        let title = WBNetWorkManager.shared.userAccount.screen_name
+        
+        let button = UIButton.cz_textButton(title, fontSize: 17, normalColor: UIColor.darkGray, highlightedColor: UIColor.black)
         
         button?.setImage(UIImage.init(named: "navigationbar_arrow_down"), for: [])
         button?.setImage(UIImage.init(named: "navigationbar_arrow_up"), for: .selected)

@@ -8,24 +8,18 @@
 
 import UIKit
 import UserNotifications
+import SVProgressHUD
+import AFNetworking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        //取得用户授权显示通知[sound/badgeNumber/alert]
-        if #available(iOS 10.0, *) {//10.0以上
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .carPlay, .sound]) { (success, error) in
-                print("授权")
-            }
-        } else {//10.0以下
-            let notifySettings = UIUserNotificationSettings.init(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(notifySettings)
-        }
+        //应用程序额外设置
+        setupAdditions()
         
         window = UIWindow()
         window?.rootViewController = WBMainViewController()
@@ -34,6 +28,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         loadInfo()
         return true
+    }
+}
+
+
+// MARK: - 设置应用程序额外设置
+extension AppDelegate {
+    
+    func setupAdditions() {
+        
+        //1. 设置SVProgressHUD 最小解除时间
+        SVProgressHUD.setMinimumDismissTimeInterval(1)
+        
+        //2. 设置AFN 加载指示器
+        AFNetworkActivityIndicatorManager.shared().isEnabled = true
+        
+        //3. 设置用户授权显示通知  [sound/badgeNumber/alert]
+        if #available(iOS 10.0, *) {//10.0以上  #available检查设备版本
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .carPlay, .sound]) { (success, error) in
+                print("授权")
+            }
+        } else {//10.0以下
+            let notifySettings = UIUserNotificationSettings.init(types: [.alert, .badge, .sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(notifySettings)
+        }
     }
 }
 

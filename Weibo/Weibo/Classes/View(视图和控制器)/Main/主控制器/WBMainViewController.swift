@@ -119,13 +119,19 @@ extension WBMainViewController {
     var isNewVersion: Bool {
         
         //1. 取当前的版本号
-        
-        //2. 取保存在‘document（iTunes会备份）’，最理想版本号会保存在plist中，目录中之前的版本号
-        
+        let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        print("当前版本：+\(currentVersion)")
+
+        //2. 取保存在‘document（iTunes会备份）’，最理想版本号会保存在plist中，目录中之前的版本号1.0.2
+        let path: String = ("version" as NSString).cz_appendDocumentDir()
+        let sandboxVersion = (try? String.init(contentsOfFile: path)) ?? ""
+        print("沙盒版本：+\(sandboxVersion)")
+
         //3. 将当前版本号保存在沙盒中
+        try? currentVersion.write(toFile: path, atomically: true, encoding: .utf8)
         
         //4. 返回两个版本号 ‘是否一致’
-        return true
+        return currentVersion != sandboxVersion
     }
 }
 

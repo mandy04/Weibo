@@ -109,7 +109,7 @@ extension WBOAuthViewController : UIWebViewDelegate {
                 
                 //下一步做什么？跳转页面？ 通过通知发送消息
                 //1. 发送通知，不关心有没有监听者
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBLoginSuccessedNotification),
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserLoginSuccessedNotification),
                                                 object: nil)
                 //2. 关闭当前页面
                 self.close()

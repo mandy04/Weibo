@@ -40,6 +40,16 @@ class WBBaseViewController: UIViewController {
         setupUI()
         //判断用户登录加载数据，否则不加载
         WBNetWorkManager.shared.userLogon ? loadData() : ()
+        
+        //注册通知
+        NotificationCenter.default.addObserver(self,
+                                               selector:#selector(loginSuccess),
+                                               name: NSNotification.Name(rawValue: WBUserLoginSuccessedNotification),
+                                               object: nil)
+    }
+    deinit {
+        //注销通知
+        NotificationCenter.default.removeObserver(self)
     }
     //基类设置加载数据
     @objc func loadData() {
@@ -55,6 +65,19 @@ class WBBaseViewController: UIViewController {
 }
 
 extension WBBaseViewController {
+    //登录成功处理
+    @objc private func loginSuccess(n: Notification) {
+        print("登录成功")
+        //更新UI，将访客视图->表格视图
+        //需要重新设置view
+        //在访问view的getter方法时，当view = nil，会调用loadView -> viewdidLoad
+        view = nil
+        
+        //注销通知，避免通知会重复注册
+        NotificationCenter.default.removeObserver(self)
+        
+    }
+    
     @objc func login() {
         print("登录")
         //发送通知

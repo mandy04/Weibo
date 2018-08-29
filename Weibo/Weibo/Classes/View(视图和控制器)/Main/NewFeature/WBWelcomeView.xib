@@ -25,7 +25,7 @@
                         <constraint firstAttribute="height" constant="85" id="SuO-RW-eaV"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="欢迎归来~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08E-sI-UD7">
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="欢迎归来~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08E-sI-UD7">
                     <rect key="frame" x="147" y="519" width="80" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -42,6 +42,11 @@
                 <constraint firstItem="JW6-pW-h9J" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZgW-2N-dht"/>
                 <constraint firstItem="RZp-v9-HC2" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="fIG-ra-Rbx"/>
             </constraints>
+            <connections>
+                <outlet property="bottomCons" destination="BXd-j8-kl9" id="Gk0-GX-Z7N"/>
+                <outlet property="iconView" destination="JW6-pW-h9J" id="baA-9a-sm8"/>
+                <outlet property="tipLabel" destination="08E-sI-UD7" id="O3u-Ei-cmH"/>
+            </connections>
             <point key="canvasLocation" x="33.5" y="89.5"/>
         </view>
     </objects>

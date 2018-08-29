@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import SDWebImage
 
 class WBWelcomeView: UIView {
 
@@ -30,7 +31,31 @@ class WBWelcomeView: UIView {
 //    override func layoutSubviews() {
 //    }
     
+    // 提示：initWithaDecoder 是刚刚从 XIB 二进制文件将试图数据加载完成
+    // 还没有跟代码连线建立起关系，所以开发时，不要在此方法中 处理UI   ----相当于initWithFrame（无XIB时）
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        print("initWithaDecoder + \(iconView)")
+    }
     
+    override func awakeFromNib() {
+        print("awakeFromNib + \(iconView)")
+        //1. url
+        guard let urlString = WBNetWorkManager.shared.userAccount.avatar_large,
+              let url = URL.init(string: urlString)
+        else {
+            return
+        }
+        
+        //2. 设置头像，如果网络没有下载完成，先使用占位图
+        // 如果不使用占位图，之前设置的图像会被清空
+//        iconView.sd_s
+       //FIXME：
+        
+        //3. 设置圆角
+        //FIXME
+        
+    }
     /// 视图被添加到 Windows 上，表示视图已经显示
     override func didMoveToWindow() {
         super.didMoveToWindow()
@@ -44,17 +69,19 @@ class WBWelcomeView: UIView {
         bottomCons.constant = bounds.size.height - 200
         
         //如果控件们的frame还没计算好，所有的约束回忆起动画
-        UIView.animate(withDuration: 5.0,
+        UIView.animate(withDuration: 1.0,
                        delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 0,
+                       usingSpringWithDamping: 0.7,//弹力系数
+                       initialSpringVelocity: 0,//初始速度
                        options: [], animations: {
             //更新约束
             self.layoutIfNeeded()
         }) { (_) in
-            
+            UIView.animate(withDuration: 1.0, animations: {
+                self.tipLabel.alpha = 1
+            }, completion: { (_) in
+                self.removeFromSuperview()
+            })
         }
-        
     }
-
 }

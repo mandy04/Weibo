@@ -100,7 +100,7 @@ extension WBMainViewController {
     private func setupNewFeatureViews() {
      
         //1. 如果更新，显示新特性；否则显示欢迎界面
-        let v = isNewVersion ? WBNewFeatureView() : WBWelcomeView.welcomeView()
+        let v = isNewVersion ? WBNewFeatureView.newFeatureView() : WBWelcomeView.welcomeView()
         
         view.addSubview(v)
     }
@@ -128,7 +128,7 @@ extension WBMainViewController {
         try? currentVersion.write(toFile: path, atomically: true, encoding: .utf8)
         
         //4. 返回两个版本号 ‘是否一致’
-        return currentVersion != sandboxVersion
+        return currentVersion == sandboxVersion
     }
 }
 

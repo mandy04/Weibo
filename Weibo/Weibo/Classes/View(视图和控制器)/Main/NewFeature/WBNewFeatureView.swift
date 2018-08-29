@@ -10,6 +10,12 @@ import UIKit
 
 class WBNewFeatureView: UIView {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var enterButton: UIButton!
+    @IBAction func enterButton(_ sender: UIButton) {
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: CGRect())
         backgroundColor = UIColor.red

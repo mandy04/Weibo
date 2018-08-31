@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import SDWebImage
+import SDWebImage
 
 class WBWelcomeView: UIView {
 
@@ -49,11 +49,11 @@ class WBWelcomeView: UIView {
         
         //2. 设置头像，如果网络没有下载完成，先使用占位图
         // 如果不使用占位图，之前设置的图像会被清空
-//        iconView.sd_s
-       //FIXME：
+        iconView.sd_setImage(with: url, placeholderImage: UIImage(named: "avatar_default_big"))
         
         //3. 设置圆角
-        //FIXME
+        iconView.layer.masksToBounds = true
+        iconView.layer.cornerRadius = iconView.bounds.width * 0.5
         
     }
     /// 视图被添加到 Windows 上，表示视图已经显示

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0B71E7AA4E37216BFB864BE7CF13A0F3"
+               BlueprintIdentifier = "A7E4A13CA930BAD4A6454A478D6FD5A7"
                BuildableName = "Pods_Weibo.framework"
                BlueprintName = "Pods-Weibo"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -37,7 +36,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0B71E7AA4E37216BFB864BE7CF13A0F3"
+            BlueprintIdentifier = "A7E4A13CA930BAD4A6454A478D6FD5A7"
             BuildableName = "Pods_Weibo.framework"
             BlueprintName = "Pods-Weibo"
             ReferencedContainer = "container:Pods.xcodeproj">

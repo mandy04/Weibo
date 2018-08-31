@@ -128,7 +128,7 @@ extension WBMainViewController {
         try? currentVersion.write(toFile: path, atomically: true, encoding: .utf8)
         
         //4. 返回两个版本号 ‘是否一致’
-        return currentVersion == sandboxVersion
+        return currentVersion != sandboxVersion
     }
 }
 

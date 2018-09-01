@@ -188,6 +188,9 @@ extension WBMainViewController : UITabBarControllerDelegate {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
                 vc.loadData()
             })
+            //5. 清除tabBarItem和应用程序角标
+            vc.tabBarItem.badgeValue = nil
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
       //判断目标控制器是否是UIViewController,如果是这个类不加载；不是这个类加载；
         return !viewController.isMember(of: UIViewController.self)

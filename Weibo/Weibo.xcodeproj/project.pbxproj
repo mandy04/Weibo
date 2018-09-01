@@ -156,7 +156,7 @@
 			children = (
 				763B494C204D4DF800ECA116 /* Discover */,
 				763B494D204D4DF800ECA116 /* Home */,
-				763B494E204D4DF800ECA116 /* Main */,
+				763B494E204D4DF800ECA116 /* Main(主要的) */,
 				763B494F204D4DF800ECA116 /* Message */,
 				763B4950204D4DF800ECA116 /* Profile */,
 			);
@@ -180,15 +180,15 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		763B494E204D4DF800ECA116 /* Main */ = {
+		763B494E204D4DF800ECA116 /* Main(主要的) */ = {
 			isa = PBXGroup;
 			children = (
-				764FE68A2131326C00573D68 /* NewFeature */,
-				76F98CE92122A6AE005D4613 /* OAuth */,
+				764FE68A2131326C00573D68 /* NewFeature(新特性) */,
+				76F98CE92122A6AE005D4613 /* OAuth(授权) */,
 				76ADCD942055157500CE5A1C /* 主控制器 */,
 				763B4956204D4EAE00ECA116 /* WBBaseViewController.swift */,
 			);
-			path = Main;
+			path = "Main(主要的)";
 			sourceTree = "<group>";
 		};
 		763B494F204D4DF800ECA116 /* Message */ = {
@@ -223,7 +223,7 @@
 			path = WBTitleButton;
 			sourceTree = "<group>";
 		};
-		764FE68A2131326C00573D68 /* NewFeature */ = {
+		764FE68A2131326C00573D68 /* NewFeature(新特性) */ = {
 			isa = PBXGroup;
 			children = (
 				764FE69121314B0700573D68 /* WBWelcomeView.swift */,
@@ -231,7 +231,7 @@
 				764FE68D213132FF00573D68 /* WBNewFeatureView.swift */,
 				7634F0962136E59700E9AC4D /* WBNewFeatureView.xib */,
 			);
-			path = NewFeature;
+			path = "NewFeature(新特性)";
 			sourceTree = "<group>";
 		};
 		76618A50204ECFAB002EC691 /* Extensions */ = {
@@ -251,12 +251,12 @@
 			path = "测试";
 			sourceTree = "<group>";
 		};
-		76716CD320588B4B005A4DA8 /* VisitorView */ = {
+		76716CD320588B4B005A4DA8 /* VisitorView(访客视图) */ = {
 			isa = PBXGroup;
 			children = (
 				76716CD420588B6A005A4DA8 /* WBVisitorView.swift */,
 			);
-			path = VisitorView;
+			path = "VisitorView(访客视图)";
 			sourceTree = "<group>";
 		};
 		768B46BC204BEE9D0046D1CB = {
@@ -292,7 +292,7 @@
 		76ADCD942055157500CE5A1C /* 主控制器 */ = {
 			isa = PBXGroup;
 			children = (
-				76716CD320588B4B005A4DA8 /* VisitorView */,
+				76716CD320588B4B005A4DA8 /* VisitorView(访客视图) */,
 				76716CD6205EE02D005A4DA8 /* main.json */,
 				763B4952204D4E5B00ECA116 /* WBMainViewController.swift */,
 				763B4954204D4E8400ECA116 /* WBNavViewController.swift */,
@@ -332,12 +332,12 @@
 			path = Additions;
 			sourceTree = "<group>";
 		};
-		76F98CE92122A6AE005D4613 /* OAuth */ = {
+		76F98CE92122A6AE005D4613 /* OAuth(授权) */ = {
 			isa = PBXGroup;
 			children = (
 				76F98CEA2122A6F5005D4613 /* WBOAuthViewController.swift */,
 			);
-			path = OAuth;
+			path = "OAuth(授权)";
 			sourceTree = "<group>";
 		};
 		76F98CEC2123F71B005D4613 /* Network */ = {

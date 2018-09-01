@@ -86,6 +86,15 @@
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GWY-Qs-igz" secondAttribute="trailing" constant="11" id="zco-dM-adK"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="iconView" destination="UYo-0l-lIP" id="lMH-QE-Rhl"/>
+                <outlet property="memberIconView" destination="qD6-Ul-1d3" id="c4F-bL-GBa"/>
+                <outlet property="nameLabel" destination="w9O-sR-kHw" id="F4V-SD-SbI"/>
+                <outlet property="sourceLabel" destination="4Ro-FV-mES" id="ftL-Ko-qSL"/>
+                <outlet property="statusLabel" destination="GWY-Qs-igz" id="A6J-jc-pry"/>
+                <outlet property="timeLabel" destination="shI-8E-ELN" id="Ntv-9j-79w"/>
+                <outlet property="vipIconView" destination="tUM-Nm-JNk" id="Dg3-ly-f8t"/>
+            </connections>
             <point key="canvasLocation" x="-177" y="111"/>
         </tableViewCell>
     </objects>

@@ -11,7 +11,7 @@ import UIKit
 /// 微博用户模型
 class WBUser: NSObject {
     
-    //基本数据类型与private 不能？
+    //基本数据类型与private 不能使用KVC设置
     var id : Int64 = 0
     //用户昵称
     var screen_name : String?

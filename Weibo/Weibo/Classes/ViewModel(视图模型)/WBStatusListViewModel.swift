@@ -26,8 +26,8 @@ private let maxPullupTryTimes = 3
 
 class WBStatusListViewModel {
     
-    //微博模型数组懒加载
-    lazy var  statusList = [WBStatus]()
+    //微博视图模型数组懒加载
+    lazy var statusList = [WBStatusViewModel]()
     
     //上拉刷新错误次数
     private var pullUpErrorTimes = 0
@@ -43,19 +43,33 @@ class WBStatusListViewModel {
         }
         
         //since_id 下拉，取出数组中第一条微博的id
-        let since_id = pullUp ? 0 : (statusList.first?.id ?? 0)
+        let since_id = pullUp ? 0 : (statusList.first?.status?.id ?? 0)
         //max_id  上拉，取出数组中最后一条微博id
-        let  max_id = !pullUp ? 0 : (statusList.last?.id ?? 0)
+        let  max_id = !pullUp ? 0 : (statusList.last?.status?.id ?? 0)
         
         WBNetWorkManager.shared.statusList(since_id: since_id, max_id: max_id){ (list, isSuccess) in
             
-           /// BUG：使用YYModel，字典中有值，但是字典转模型之后，模型中没有值：
-          ///解决方法：在build setting -> swift 3 @objc inference -> on 然后在swift4里面就可以使用了
-            //1. 字典转模型 [所有第三方框架都支持字典转模型]
-            guard let array = NSArray.yy_modelArray(with: WBStatus.classForCoder(), json: list ?? []) as? [WBStatus] else {
-                completion(isSuccess , false)
+            //1. 如果网络请求返回失败
+            if !isSuccess {
+                completion(false,false)
                 return
             }
+            /// BUG：使用YYModel，字典中有值，但是字典转模型之后，模型中没有值：
+            ///解决方法：在build setting -> swift 3 @objc inference -> on 然后在swift4里面就可以使用了
+            //1. 字典转模型 [所有第三方框架都支持字典转模型]
+            
+            //1> 定义结果可变数组
+            var array = [WBStatusViewModel]()
+            //2> 遍历服务器返回的数组，字典转模型
+            for dict in list ?? [] {
+                //a. 创建微博模型 --创建模型失败，继续后面的遍历
+                guard let model = WBStatus.yy_model(with: dict) else {
+                    continue
+                }
+                //b. 将视图模型添加到数组
+                array.append(WBStatusViewModel(model: model))
+            }
+         
             print("刷新到 \(array.count) 条数据 \(array)")
             //2. 拼接数组
             if pullUp { //上拉

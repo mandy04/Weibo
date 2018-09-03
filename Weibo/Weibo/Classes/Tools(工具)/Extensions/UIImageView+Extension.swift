@@ -15,7 +15,8 @@ extension UIImageView {
     /// - Parameters:
     ///   - urlString:  urlString
     ///   - placeholderImage: 占位图
-    func cz_setImage(urlString: String?,placeholderImage:UIImage) {
+    ///   -isAvatar: 是否头像
+    func cz_setImage(urlString: String?,placeholderImage:UIImage, isAvatar:Bool = false) {
         //处理url
         guard let urlString = urlString,
               let url = URL(string: urlString) else {
@@ -23,9 +24,13 @@ extension UIImageView {
             image = placeholderImage
             return
         }
-        //可选项只是用在swift，oc有的时候用！，同样可以使用nil
-        sd_setImage(with: url, placeholderImage: placeholderImage, options: [], progress:nil) { (image, _, _, _) in
+        //可选项只是用在swift，oc有的时候用！，同样可以使用nil  [weak self] --避免循环使用
+        sd_setImage(with: url, placeholderImage: placeholderImage, options: [], progress:nil) {[weak self] (image, _, _, _) in
             
+            //完成回调，判断是否是头像
+            if isAvatar {
+                self?.image = image?.cz_avatarImage(size: self?.bounds.size)
+            }
         }
     }
 }

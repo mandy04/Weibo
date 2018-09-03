@@ -50,8 +50,7 @@ extension WBHomeViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! WBStatusCell
         //2.设置cell
         let listModel = listViewModel.statusList[indexPath.row]
-        cell.statusLabel?.text = listModel.status?.text
-        cell.nameLabel.text = listModel.status?.user?.screen_name
+        cell.viewModel = listModel
         //3.返回cell
         return cell
     }

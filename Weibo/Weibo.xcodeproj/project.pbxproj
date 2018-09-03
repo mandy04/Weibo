@@ -30,6 +30,7 @@
 		767A3913213A60C200802BD0 /* WBStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A3912213A60C200802BD0 /* WBStatusCell.swift */; };
 		767A3915213A60E600802BD0 /* WBStatusNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 767A3914213A60E600802BD0 /* WBStatusNormalCell.xib */; };
 		767A3917213D0C3500802BD0 /* WBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A3916213D0C3500802BD0 /* WBUser.swift */; };
+		767A391B213D1B3E00802BD0 /* WBStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A391A213D1B3E00802BD0 /* WBStatusViewModel.swift */; };
 		768B46C9204BEE9E0046D1CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768B46C8204BEE9E0046D1CB /* AppDelegate.swift */; };
 		768B46D0204BEE9E0046D1CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768B46CF204BEE9E0046D1CB /* Assets.xcassets */; };
 		76BC4179204EC6D600E5522B /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BC4162204EC6D600E5522B /* NSArray+Log.m */; };
@@ -77,6 +78,7 @@
 		767A3912213A60C200802BD0 /* WBStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusCell.swift; sourceTree = "<group>"; };
 		767A3914213A60E600802BD0 /* WBStatusNormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBStatusNormalCell.xib; sourceTree = "<group>"; };
 		767A3916213D0C3500802BD0 /* WBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBUser.swift; sourceTree = "<group>"; };
+		767A391A213D1B3E00802BD0 /* WBStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusViewModel.swift; sourceTree = "<group>"; };
 		768B46C5204BEE9D0046D1CB /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768B46C8204BEE9E0046D1CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		768B46CF204BEE9E0046D1CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				765A4D4D21158D0A009B96C0 /* WBStatusListViewModel.swift */,
+				767A391A213D1B3E00802BD0 /* WBStatusViewModel.swift */,
 			);
 			path = "ViewModel(视图模型)";
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76BC4180204EC6D600E5522B /* UIColor+CZAddition.m in Sources */,
+				767A391B213D1B3E00802BD0 /* WBStatusViewModel.swift in Sources */,
 				76BC4179204EC6D600E5522B /* NSArray+Log.m in Sources */,
 				76716CD520588B6A005A4DA8 /* WBVisitorView.swift in Sources */,
 				764FE69221314B0A00573D68 /* WBWelcomeView.swift in Sources */,

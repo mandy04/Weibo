@@ -129,7 +129,7 @@ extension WBMainViewController {
         
         //4. 返回两个版本号 ‘是否一致’
         ///currentVersion != sandboxVersion 欢迎界面 ；  == 新特性界面
-        return currentVersion == sandboxVersion
+        return currentVersion != sandboxVersion
     }
 }
 

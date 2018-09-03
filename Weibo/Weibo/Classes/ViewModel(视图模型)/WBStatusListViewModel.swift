@@ -51,13 +51,13 @@ class WBStatusListViewModel {
             
            /// BUG：使用YYModel，字典中有值，但是字典转模型之后，模型中没有值：
           ///解决方法：在build setting -> swift 3 @objc inference -> on 然后在swift4里面就可以使用了
-            //1. 字典转模型
+            //1. 字典转模型 [所有第三方框架都支持字典转模型]
             guard let array = NSArray.yy_modelArray(with: WBStatus.classForCoder(), json: list ?? []) as? [WBStatus] else {
                 completion(isSuccess , false)
                 return
             }
-            print("刷新到 \(array.count) 条数据")
-            //2. 拼接数组 FIXME:
+            print("刷新到 \(array.count) 条数据 \(array)")
+            //2. 拼接数组
             if pullUp { //上拉
                 //刷新数组，将结果数组拼接在数组后面
                 self.statusList += array

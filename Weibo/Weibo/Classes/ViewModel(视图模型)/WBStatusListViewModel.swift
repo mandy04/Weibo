@@ -47,29 +47,32 @@ class WBStatusListViewModel {
         //max_id  上拉，取出数组中最后一条微博id
         let  max_id = !pullUp ? 0 : (statusList.last?.status?.id ?? 0)
         
+        // 发起网络请求，加载微博数据【字典的数组】
         WBNetWorkManager.shared.statusList(since_id: since_id, max_id: max_id){ (list, isSuccess) in
             
-            //1. 如果网络请求返回失败
+            //0. 如果网络请求失败,直接执行完成回调
             if !isSuccess {
                 completion(false,false)
                 return
             }
+            print(list)
             /// BUG：使用YYModel，字典中有值，但是字典转模型之后，模型中没有值：
             ///解决方法：在build setting -> swift 3 @objc inference -> on 然后在swift4里面就可以使用了
-            //1. 字典转模型 [所有第三方框架都支持字典转模型]
             
-            //1> 定义结果可变数组
+            //1. 遍历字典数组，字典转 模型 -> 视图模型 [所有第三方框架都支持字典转模型]
             var array = [WBStatusViewModel]()
-            //2> 遍历服务器返回的数组，字典转模型
+            
             for dict in list ?? [] {
-                //a. 创建微博模型 --创建模型失败，继续后面的遍历
-                guard let model = WBStatus.yy_model(with: dict) else {
-                    continue
-                }
-                //b. 将视图模型添加到数组
-                array.append(WBStatusViewModel(model: model))
+                //1> 创建微博模型
+                let status = WBStatus()
+                //2> 使用字典设置模型视图
+                status.yy_modelSet(with: dict)
+                //3> 使用‘微博’模型创建‘微博视图’模型
+                let viewModel = WBStatusViewModel(model: status)
+                //4> 将视图模型添加到数组
+                array.append(viewModel)
             }
-         
+            
             print("刷新到 \(array.count) 条数据 \(array)")
             //2. 拼接数组
             if pullUp { //上拉

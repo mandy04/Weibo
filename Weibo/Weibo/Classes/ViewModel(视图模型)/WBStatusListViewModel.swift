@@ -55,7 +55,6 @@ class WBStatusListViewModel {
                 completion(false,false)
                 return
             }
-            print(list)
             /// BUG：使用YYModel，字典中有值，但是字典转模型之后，模型中没有值：
             ///解决方法：在build setting -> swift 3 @objc inference -> on 然后在swift4里面就可以使用了
             

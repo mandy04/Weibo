@@ -19,10 +19,10 @@ class WBStatus: NSObject {
     //微博用户 --注意和服务器返回 KEY 一致
     var user : WBUser?
     
-    //评论
-    var comments_count : Int = 0
     //转发
     var reposts_count : Int = 0
+    //评论
+    var comments_count : Int = 0
     //赞
     var attitudes_count : Int = 0
     

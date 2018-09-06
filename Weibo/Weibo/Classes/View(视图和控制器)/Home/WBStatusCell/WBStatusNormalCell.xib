@@ -63,7 +63,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZf-uF-TBY" userLabel="底部工具栏">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZf-uF-TBY" userLabel="底部工具栏" customClass="WBStatusToolBar" customModule="Weibo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="159" width="387" height="36"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTO-3U-Dfu">
@@ -74,19 +74,19 @@
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfQ-Mz-YBf">
-                                <rect key="frame" x="258" y="0.5" width="129" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="转发" image="timeline_icon_unlike" backgroundImage="timeline_card_bottom_background">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTi-S0-H4k">
                                 <rect key="frame" x="129" y="0.0" width="129" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="转发" image="timeline_icon_retweet" backgroundImage="timeline_card_bottom_background">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfQ-Mz-YBf">
+                                <rect key="frame" x="258" y="0.5" width="129" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="赞" image="timeline_icon_unlike" backgroundImage="timeline_card_bottom_background">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -126,6 +126,11 @@
                             <constraint firstItem="nTO-3U-Dfu" firstAttribute="leading" secondItem="sZf-uF-TBY" secondAttribute="leading" id="w30-NR-pCj"/>
                             <constraint firstItem="zTi-S0-H4k" firstAttribute="leading" secondItem="nTO-3U-Dfu" secondAttribute="trailing" id="zMM-3o-hDp"/>
                         </constraints>
+                        <connections>
+                            <outlet property="commentButton" destination="nTO-3U-Dfu" id="j57-Dy-geI"/>
+                            <outlet property="likeButton" destination="bfQ-Mz-YBf" id="bsZ-J0-Oxm"/>
+                            <outlet property="retweetedButton" destination="zTi-S0-H4k" id="YJ9-fL-R0L"/>
+                        </connections>
                     </view>
                 </subviews>
                 <constraints>
@@ -160,6 +165,7 @@
                 <outlet property="sourceLabel" destination="4Ro-FV-mES" id="ftL-Ko-qSL"/>
                 <outlet property="statusLabel" destination="GWY-Qs-igz" id="A6J-jc-pry"/>
                 <outlet property="timeLabel" destination="shI-8E-ELN" id="Ntv-9j-79w"/>
+                <outlet property="toolBar" destination="sZf-uF-TBY" id="NuV-hm-UJn"/>
                 <outlet property="vipIconView" destination="tUM-Nm-JNk" id="Dg3-ly-f8t"/>
             </connections>
             <point key="canvasLocation" x="-177.5" y="110.5"/>

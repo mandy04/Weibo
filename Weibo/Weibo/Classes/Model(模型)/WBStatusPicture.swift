@@ -11,7 +11,7 @@ import UIKit
 @objcMembers class WBStatusPicture: NSObject {
 
     /// 缩略图地址
-    dynamic var thumbnail_pic: String?
+    var thumbnail_pic: String?
     
     override var description: String{
         return yy_modelDescription()

@@ -34,6 +34,16 @@ class WBStatusCell: UITableViewCell {
             
             //设置配图视图的url数据
             pictureView.urls = viewModel?.status?.pic_urls
+            
+            //测试4张图片
+//            if viewModel?.status?.pic_urls?.count ?? 0 > 4 {
+//                // 修改数组 -> 将末尾的数据全部删除
+//                var picURLs = viewModel?.status?.pic_urls ?? []
+//                picURLs.removeSubrange(((picURLs.startIndex) + 4)..<(picURLs.endIndex))
+//                pictureView.urls = picURLs
+//            }else{
+//                pictureView.urls = viewModel?.status?.pic_urls
+//            }
         }
     }
     

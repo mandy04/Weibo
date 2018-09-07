@@ -62,6 +62,7 @@ class WBStatusListViewModel {
             var array = [WBStatusViewModel]()
             
             for dict in list ?? [] {
+                print("-----\(dict["pic_urls"])")
                 //1> 创建微博模型
                 let status = WBStatus()
                 //2> 使用字典设置模型视图

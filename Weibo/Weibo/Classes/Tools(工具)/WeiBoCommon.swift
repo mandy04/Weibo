@@ -21,3 +21,14 @@ let WBRedirectURI = "http://baidu.com"
 //用户需要登录通知
 let WBUserShouldLoginNotification = "WBUserShouldLoginNotification"
 let WBUserLoginSuccessedNotification = "WBUserLoginSuccessedNotification"
+
+
+/// MARK --微博视图配图的常量
+//配图视图的外间距
+let WBStatusPictureViewOutterMargin = CGFloat(12)
+//配图视图的内间距
+let WBStatusPictureViewInnerMargin = CGFloat(3)
+//视图的宽度
+let WBStatusPictureViewWidth = UIScreen.cz_screenWidth() - 2 * WBStatusPictureViewOutterMargin
+//每个Item 默认的宽度
+let WBStatusPictureItemWidth = WBStatusPictureViewWidth / 3

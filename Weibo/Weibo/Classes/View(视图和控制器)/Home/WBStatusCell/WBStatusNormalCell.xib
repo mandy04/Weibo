@@ -132,12 +132,15 @@
                             <outlet property="retweetedButton" destination="zTi-S0-H4k" id="YJ9-fL-R0L"/>
                         </connections>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZN-kd-7WO">
-                        <rect key="frame" x="11" y="93" width="380" height="249.5"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZN-kd-7WO" userLabel="配图视图" customClass="WBStatusPictureView" customModule="Weibo" customModuleProvider="target">
+                        <rect key="frame" x="11" y="93" width="380" height="200"/>
                         <color key="backgroundColor" red="1" green="0.97610643149999998" blue="0.54861474489999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="249.5" id="xW7-KP-3H8"/>
+                            <constraint firstAttribute="height" constant="200" id="xW7-KP-3H8"/>
                         </constraints>
+                        <connections>
+                            <outlet property="heightCons" destination="xW7-KP-3H8" id="ttw-Q7-lyY"/>
+                        </connections>
                     </view>
                 </subviews>
                 <constraints>
@@ -172,6 +175,8 @@
                 <outlet property="iconView" destination="UYo-0l-lIP" id="lMH-QE-Rhl"/>
                 <outlet property="memberIconView" destination="qD6-Ul-1d3" id="c4F-bL-GBa"/>
                 <outlet property="nameLabel" destination="w9O-sR-kHw" id="F4V-SD-SbI"/>
+                <outlet property="pictureTopCons" destination="PFB-uN-2Lc" id="fAK-3T-AMa"/>
+                <outlet property="pictureView" destination="CZN-kd-7WO" id="AJ0-wA-geR"/>
                 <outlet property="sourceLabel" destination="4Ro-FV-mES" id="ftL-Ko-qSL"/>
                 <outlet property="statusLabel" destination="GWY-Qs-igz" id="A6J-jc-pry"/>
                 <outlet property="timeLabel" destination="shI-8E-ELN" id="Ntv-9j-79w"/>

@@ -28,6 +28,10 @@ class WBStatusCell: UITableViewCell {
             iconView.cz_setImage(urlString: viewModel?.status?.user?.profile_image_url, placeholderImage:UIImage(named: "avatar_default_big")! ,isAvatar: true)
             //底部导航
             toolBar.viewModel = viewModel
+            
+            /// 修改配图视图的高度
+            pictureView.heightCons.constant = 0
+            pictureTopCons.constant = 0
         }
     }
     
@@ -47,6 +51,10 @@ class WBStatusCell: UITableViewCell {
     @IBOutlet weak var statusLabel: UILabel!
     /// 底部工具栏
     @IBOutlet weak var toolBar: WBStatusToolBar!
+    /// 配图视图
+    @IBOutlet weak var pictureView: WBStatusPictureView!
+    /// 配图顶部约束
+    @IBOutlet weak var pictureTopCons: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()

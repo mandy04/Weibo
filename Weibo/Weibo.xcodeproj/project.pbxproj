@@ -48,6 +48,7 @@
 		76BC4182204EC6D600E5522B /* UIScreen+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BC4174204EC6D600E5522B /* UIScreen+CZAddition.m */; };
 		76BC4183204EC6D600E5522B /* UIView+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BC4176204EC6D600E5522B /* UIView+CZAddition.m */; };
 		76BC4184204EC6D600E5522B /* UIViewController+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BC4178204EC6D600E5522B /* UIViewController+CZAddition.m */; };
+		76F34C542142CBB800275A79 /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F34C532142CBB800275A79 /* WBStatusPictureView.swift */; };
 		76F98CE82122A21F005D4613 /* WeiBoCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F98CE72122A21F005D4613 /* WeiBoCommon.swift */; };
 		76F98CEB2122A6F5005D4613 /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F98CEA2122A6F5005D4613 /* WBOAuthViewController.swift */; };
 		76F98CF02123F71B005D4613 /* WBNetWorkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F98CEE2123F71B005D4613 /* WBNetWorkManager+Extension.swift */; };
@@ -115,6 +116,7 @@
 		76BC4177204EC6D600E5522B /* UIViewController+CZAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CZAddition.h"; sourceTree = "<group>"; };
 		76BC4178204EC6D600E5522B /* UIViewController+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CZAddition.m"; sourceTree = "<group>"; };
 		76BC4185204EC71100E5522B /* Weibo-bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-bridge.h"; sourceTree = "<group>"; };
+		76F34C532142CBB800275A79 /* WBStatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPictureView.swift; sourceTree = "<group>"; };
 		76F98CE72122A21F005D4613 /* WeiBoCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiBoCommon.swift; sourceTree = "<group>"; };
 		76F98CEA2122A6F5005D4613 /* WBOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
 		76F98CEE2123F71B005D4613 /* WBNetWorkManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WBNetWorkManager+Extension.swift"; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				767A3912213A60C200802BD0 /* WBStatusCell.swift */,
 				767A3914213A60E600802BD0 /* WBStatusNormalCell.xib */,
 				7630C4092141734B00A394BE /* WBStatusToolBar.swift */,
+				76F34C532142CBB800275A79 /* WBStatusPictureView.swift */,
 			);
 			path = WBStatusCell;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				76BC4183204EC6D600E5522B /* UIView+CZAddition.m in Sources */,
 				76F98CEB2122A6F5005D4613 /* WBOAuthViewController.swift in Sources */,
 				76BC417D204EC6D600E5522B /* NSString+CZHash.m in Sources */,
+				76F34C542142CBB800275A79 /* WBStatusPictureView.swift in Sources */,
 				768B46C9204BEE9E0046D1CB /* AppDelegate.swift in Sources */,
 				76F98CF32123F73D005D4613 /* WBUserAccount.swift in Sources */,
 			);

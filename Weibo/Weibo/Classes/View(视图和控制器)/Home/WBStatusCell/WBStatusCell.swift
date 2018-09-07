@@ -31,7 +31,6 @@ class WBStatusCell: UITableViewCell {
             
             /// 修改配图视图的高度
             pictureView.heightCons.constant = 0
-            pictureTopCons.constant = 0
         }
     }
     
@@ -53,8 +52,6 @@ class WBStatusCell: UITableViewCell {
     @IBOutlet weak var toolBar: WBStatusToolBar!
     /// 配图视图
     @IBOutlet weak var pictureView: WBStatusPictureView!
-    /// 配图顶部约束
-    @IBOutlet weak var pictureTopCons: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()

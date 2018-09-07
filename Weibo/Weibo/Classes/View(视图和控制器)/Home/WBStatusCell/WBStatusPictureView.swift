@@ -26,8 +26,10 @@ extension WBStatusPictureView {
    // 3. 不要动态创建控件
    private func seupUI() {
     
+    //超出边界的内容不显示
+    clipsToBounds = true
         let count  = 3
-        let rect = CGRect(x: WBStatusPictureViewOutterMargin,
+        let rect = CGRect(x: 0,
                           y: WBStatusPictureViewOutterMargin,
                           width: WBStatusPictureItemWidth,
                           height: WBStatusPictureItemWidth)

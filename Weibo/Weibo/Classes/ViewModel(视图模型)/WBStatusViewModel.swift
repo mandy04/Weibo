@@ -56,6 +56,9 @@ class WBStatusViewModel : CustomStringConvertible{
         return pic_urls
     }
     
+    //设置被转发微博的文字
+    var  retweetedText : String?
+    
     /// 微博模型
     /// - 构造函数
     /// - Parameter model: 微博视图模型
@@ -87,6 +90,9 @@ class WBStatusViewModel : CustomStringConvertible{
         
         ///计算配图视图大小(有原创的就计算原创的，有转发的就计算转发的)
         pictureViewSize = calPictureViewSize(count: picURLs.count)
+        //被转发微博文字
+        let temp = "@" +  (status?.retweeted_status?.user?.screen_name ?? "")  + ":"
+        retweetedText =  temp + (status?.retweeted_status?.text ?? "")
     }
     var description: String {
         return status!.description

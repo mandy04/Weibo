@@ -35,6 +35,9 @@ class WBStatusCell: UITableViewCell {
             //设置配图（被转发和原创）
             pictureView.urls = viewModel?.picURLs
             
+            //设置被转发微博文字
+            retweetedTextLabel?.text = viewModel?.retweetedText
+            
             //测试4张图片
 //            if viewModel?.status?.pic_urls?.count ?? 0 > 4 {
 //                // 修改数组 -> 将末尾的数据全部删除
@@ -65,6 +68,10 @@ class WBStatusCell: UITableViewCell {
     @IBOutlet weak var toolBar: WBStatusToolBar!
     /// 配图视图
     @IBOutlet weak var pictureView: WBStatusPictureView!
+    
+    //被转发微博文字
+    @IBOutlet weak var retweetedTextLabel: UILabel?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

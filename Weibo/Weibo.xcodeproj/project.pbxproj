@@ -55,6 +55,7 @@
 		76F98CF02123F71B005D4613 /* WBNetWorkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F98CEE2123F71B005D4613 /* WBNetWorkManager+Extension.swift */; };
 		76F98CF12123F71B005D4613 /* WBNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F98CEF2123F71B005D4613 /* WBNetWorkManager.swift */; };
 		76F98CF32123F73D005D4613 /* WBUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F98CF22123F73D005D4613 /* WBUserAccount.swift */; };
+		C6749CB521439AB0009B43EA /* WBStatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6749CB421439AAF009B43EA /* WBStatusRetweetedCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,7 +125,7 @@
 		76F98CEE2123F71B005D4613 /* WBNetWorkManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WBNetWorkManager+Extension.swift"; sourceTree = "<group>"; };
 		76F98CEF2123F71B005D4613 /* WBNetWorkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBNetWorkManager.swift; sourceTree = "<group>"; };
 		76F98CF22123F73D005D4613 /* WBUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBUserAccount.swift; sourceTree = "<group>"; };
-		C6749CB321437FBE009B43EA /* WBStatusRetweetedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBStatusRetweetedCell.xib; sourceTree = "<group>"; };
+		C6749CB421439AAF009B43EA /* WBStatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatusRetweetedCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,7 +288,7 @@
 		767A3911213A607D00802BD0 /* WBStatusCell */ = {
 			isa = PBXGroup;
 			children = (
-				C6749CB321437FBE009B43EA /* WBStatusRetweetedCell.xib */,
+				C6749CB421439AAF009B43EA /* WBStatusRetweetedCell.xib */,
 				767A3912213A60C200802BD0 /* WBStatusCell.swift */,
 				767A3914213A60E600802BD0 /* WBStatusNormalCell.xib */,
 				7630C4092141734B00A394BE /* WBStatusToolBar.swift */,
@@ -476,6 +477,7 @@
 			files = (
 				767A3915213A60E600802BD0 /* WBStatusNormalCell.xib in Resources */,
 				764FE69021313FBD00573D68 /* WBWelcomeView.xib in Resources */,
+				C6749CB521439AB0009B43EA /* WBStatusRetweetedCell.xib in Resources */,
 				76716CD7205EE02D005A4DA8 /* main.json in Resources */,
 				768B46D0204BEE9E0046D1CB /* Assets.xcassets in Resources */,
 				7634F0972136E59700E9AC4D /* WBNewFeatureView.xib in Resources */,

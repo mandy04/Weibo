@@ -29,6 +29,9 @@ class WBStatus: NSObject {
     //赞
     var attitudes_count : Int = 0
     
+    //被转发的原创微博
+    var retweeted_status : WBStatus?
+    
     //重写description计算型属性
     override var description: String {
         return yy_modelDescription()

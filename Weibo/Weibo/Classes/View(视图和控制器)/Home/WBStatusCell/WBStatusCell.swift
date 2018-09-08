@@ -32,8 +32,8 @@ class WBStatusCell: UITableViewCell {
             /// 修改配图视图的高度
             pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
             
-            //设置配图视图的url数据
-            pictureView.urls = viewModel?.status?.pic_urls
+            //设置配图（被转发和原创）
+            pictureView.urls = viewModel?.picURLs
             
             //测试4张图片
 //            if viewModel?.status?.pic_urls?.count ?? 0 > 4 {

@@ -10,6 +10,17 @@ import UIKit
 
 class WBStatusPictureView: UIView {
 
+    var viewModel: WBStatusViewModel? {
+        didSet{
+            calcViewSize()
+        }
+    }
+    //根据配图视图模型，调整视图内容
+    private func calcViewSize() {
+        //修改高度约束
+        heightCons.constant = viewModel?.pictureViewSize.height ?? 0
+    }
+    
 //配图数据的数组
     var urls : [WBStatusPicture]? {
         didSet {

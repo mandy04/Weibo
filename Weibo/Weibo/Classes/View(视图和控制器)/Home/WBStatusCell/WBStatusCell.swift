@@ -28,9 +28,8 @@ class WBStatusCell: UITableViewCell {
             iconView.cz_setImage(urlString: viewModel?.status?.user?.profile_image_url, placeholderImage:UIImage(named: "avatar_default_big")! ,isAvatar: true)
             //底部导航
             toolBar.viewModel = viewModel
-            
-            /// 修改配图视图的高度
-            pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
+            //配图视图模型
+            pictureView.viewModel = viewModel
             
             //设置配图（被转发和原创）
             pictureView.urls = viewModel?.picURLs

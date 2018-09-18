@@ -139,6 +139,8 @@ class WBStatusListViewModel {
                     let data = UIImagePNGRepresentation(image) {
                     //NSData是length的属性
                     length += data.count
+                    //更新单个图片的尺寸
+                    vm.updateSingleImage(image: image)
                 }
                 print("缓存的图片\(String(describing: image))")
                 

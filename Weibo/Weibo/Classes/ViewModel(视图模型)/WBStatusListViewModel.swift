@@ -102,6 +102,9 @@ class WBStatusListViewModel {
     /// - Parameter statusViewModel: 本次下载的视图模型数组
     private func cacheSingleImage(list: [WBStatusViewModel]) {
         
+        //调度组
+        let group = DispatchGroup()
+        
         //记录数据长度
         var length = 0
         
@@ -125,14 +128,28 @@ class WBStatusListViewModel {
              * 3> 如果沙盒中已经存在缓存的图像，后续使用SD 通过 URL 加载图像，都会加载本地沙盒图像
              * 4> 不会发起网络请求，同时，回调方法，同样会调用！
              * 5> 方法还是同样的方法，调用还是同样的调用，不过内部都不会再次发起网络请求！
+             ****注意：如果要缓存的图像累积量很大，找后台要接口！！
              **/
+            
+            //A.入组
+            group.enter()
             SDWebImageManager.shared().loadImage(with: url, options: [], progress:nil) { (image, _, _, _, _, _) in
+                //将图像转换成二进制数据
                 if let image = image,
                     let data = UIImagePNGRepresentation(image) {
+                    //NSData是length的属性
                     length += data.count
                 }
                 print("缓存的图片\(String(describing: image))")
+                
+                //B.出组
+                group.leave()
             }
+        }
+  
+        //C. 监听调度组情况
+        group.notify(queue: DispatchQueue.main) {
+            print("要缓存的图像大小 \(length / 1024) K")
         }
     }
 }

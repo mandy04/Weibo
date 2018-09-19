@@ -13,6 +13,9 @@ class WBStatusPictureView: UIView {
     var viewModel: WBStatusViewModel? {
         didSet{
             calcViewSize()
+            
+            //设置urls
+            urls = viewModel?.picURLs
         }
     }
     //根据配图视图模型，调整视图内容
@@ -43,7 +46,7 @@ class WBStatusPictureView: UIView {
     }
     
 //配图数据的数组
-    var urls : [WBStatusPicture]? {
+   private var urls : [WBStatusPicture]? {
         didSet {
             //1. 隐藏图像
             for v in subviews {

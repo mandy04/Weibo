@@ -166,7 +166,8 @@ extension WBBaseViewController {
     }
 }
 
-///设置协议UITableViewDelegate,UITableViewDataSource
+
+// MARK: - 设置协议UITableViewDelegate,UITableViewDataSource
 //基类只负责准备方法，子类负责实现，子类的数据源方法不需要super
 extension WBBaseViewController: UITableViewDelegate,UITableViewDataSource {
     
@@ -175,5 +176,8 @@ extension WBBaseViewController: UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 10
     }
 }

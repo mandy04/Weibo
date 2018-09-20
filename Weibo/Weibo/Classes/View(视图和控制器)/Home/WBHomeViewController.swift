@@ -44,9 +44,11 @@ class WBHomeViewController: WBBaseViewController {
 
 // MARK: - 实现代理
 extension WBHomeViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listViewModel.statusList.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //0. 取出视图模型，根据视图模型判断可重用cell
@@ -59,6 +61,14 @@ extension WBHomeViewController {
         //3.返回cell
         return cell
     }
+    //父类必须实现代理方法，子类才能重写
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //1. 根据 indexpath 获取视图模型
+        let vm = listViewModel.statusList[indexPath.row]
+        //2. 返回计算好的行高
+        return vm.rowHeight
+    }
+
     //上拉刷新的条件判断：加载到最后一行indexPath.row.section（最大）、indexPath.row（最后一行）上拉刷新
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
@@ -79,7 +89,6 @@ extension WBHomeViewController {
             loadData()
         }
     }
-    
 }
 // MARK: - 设置界面
 extension WBHomeViewController {
@@ -105,7 +114,7 @@ extension WBHomeViewController {
 
         
         //设置行高
-        tableView?.rowHeight = UITableViewAutomaticDimension
+//        tableView?.rowHeight = UITableViewAutomaticDimension  //取消自动行高
         tableView?.estimatedRowHeight = 300
         
         //取消分割线

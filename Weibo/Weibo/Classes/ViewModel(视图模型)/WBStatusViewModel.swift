@@ -125,7 +125,7 @@ class WBStatusViewModel : CustomStringConvertible{
         /**1> 预期尺寸，宽度固定，高度尽量大；
            2> 选项，换行文本，统一使用usesLineFragmentOrigin
          * 3> attributes :指定字体字典 NSAttributedStringKey.font
-        */
+         */
         if let text = status?.text {
             height += (text as NSString).boundingRect(with: viewSize,
                                                       options: NSStringDrawingOptions.usesLineFragmentOrigin,

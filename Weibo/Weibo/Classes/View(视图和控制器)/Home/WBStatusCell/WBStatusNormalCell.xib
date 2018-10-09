@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -58,13 +57,13 @@
                         <rect key="frame" x="35" y="47" width="14" height="14"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWY-Qs-igz" userLabel="正文">
-                        <rect key="frame" x="12" y="69" width="37.5" height="18"/>
+                        <rect key="frame" x="12" y="70" width="37.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZN-kd-7WO" userLabel="配图视图" customClass="WBStatusPictureView" customModule="Weibo" customModuleProvider="target">
-                        <rect key="frame" x="12" y="87" width="379" height="200"/>
+                        <rect key="frame" x="12" y="88" width="379" height="200"/>
                         <color key="backgroundColor" red="1" green="0.97610643149999998" blue="0.54861474489999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="200" id="xW7-KP-3H8"/>
@@ -74,7 +73,7 @@
                         </connections>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZf-uF-TBY" userLabel="底部工具栏" customClass="WBStatusToolBar" customModule="Weibo" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="299" width="403" height="35"/>
+                        <rect key="frame" x="0.0" y="300" width="403" height="35"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTO-3U-Dfu">
                                 <rect key="frame" x="0.0" y="0.0" width="134.5" height="35"/>
@@ -93,7 +92,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfQ-Mz-YBf">
-                                <rect key="frame" x="268.5" y="0.5" width="134.5" height="35"/>
+                                <rect key="frame" x="268.5" y="0.0" width="134.5" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="赞" image="timeline_icon_unlike" backgroundImage="timeline_card_bottom_background">
@@ -157,7 +156,7 @@
                     <constraint firstItem="CZN-kd-7WO" firstAttribute="top" secondItem="GWY-Qs-igz" secondAttribute="bottom" id="PFB-uN-2Lc"/>
                     <constraint firstItem="tUM-Nm-JNk" firstAttribute="centerY" secondItem="UYo-0l-lIP" secondAttribute="bottom" constant="-4" id="Y4T-CQ-BpO"/>
                     <constraint firstItem="w9O-sR-kHw" firstAttribute="leading" secondItem="UYo-0l-lIP" secondAttribute="trailing" constant="8" id="aoj-RK-kvD"/>
-                    <constraint firstItem="GWY-Qs-igz" firstAttribute="top" secondItem="UYo-0l-lIP" secondAttribute="bottom" constant="11" id="baf-2m-9kN"/>
+                    <constraint firstItem="GWY-Qs-igz" firstAttribute="top" secondItem="UYo-0l-lIP" secondAttribute="bottom" constant="12" id="baf-2m-9kN"/>
                     <constraint firstItem="sZf-uF-TBY" firstAttribute="top" secondItem="CZN-kd-7WO" secondAttribute="bottom" constant="12" id="h3t-OL-p7w"/>
                     <constraint firstItem="GWY-Qs-igz" firstAttribute="leading" secondItem="UYo-0l-lIP" secondAttribute="leading" id="hHO-iK-8Uh"/>
                     <constraint firstItem="WdE-gr-nF4" firstAttribute="leading" secondItem="vMn-nE-PhF" secondAttribute="leading" id="iVV-0u-OkI"/>
@@ -168,7 +167,7 @@
                     <constraint firstAttribute="trailing" secondItem="sZf-uF-TBY" secondAttribute="trailing" id="rP0-Rl-QIH"/>
                     <constraint firstAttribute="trailing" secondItem="CZN-kd-7WO" secondAttribute="trailing" constant="12" id="sYf-nV-gyc"/>
                     <constraint firstItem="qD6-Ul-1d3" firstAttribute="leading" secondItem="w9O-sR-kHw" secondAttribute="trailing" constant="4" id="shD-OH-Y6F"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GWY-Qs-igz" secondAttribute="trailing" constant="11" id="zco-dM-adK"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GWY-Qs-igz" secondAttribute="trailing" constant="12" id="zco-dM-adK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

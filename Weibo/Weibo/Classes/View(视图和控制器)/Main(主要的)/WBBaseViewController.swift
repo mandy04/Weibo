@@ -29,7 +29,7 @@ class WBBaseViewController: UIViewController {
     //设置tableView表格，用户登录之后才创建
     var tableView: UITableView?
     //刷新控件
-    var refreshControl: UIRefreshControl?
+    var refreshControl: CZRefreshControl?
     //上拉刷新标记
     var isPullUp:Bool = false
     //访客视图信息字典
@@ -139,7 +139,7 @@ extension WBBaseViewController {
     tableView?.scrollIndicatorInsets = tableView!.contentInset
     //添加刷新控件
       // 1>实例化控件
-    refreshControl = UIRefreshControl.init()
+    refreshControl = CZRefreshControl.init()
       // 2>添加到表格视图
     tableView?.addSubview(refreshControl!)
       // 3>添加监听方法

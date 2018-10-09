@@ -55,6 +55,7 @@
 		76F98CF02123F71B005D4613 /* WBNetWorkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F98CEE2123F71B005D4613 /* WBNetWorkManager+Extension.swift */; };
 		76F98CF12123F71B005D4613 /* WBNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F98CEF2123F71B005D4613 /* WBNetWorkManager.swift */; };
 		76F98CF32123F73D005D4613 /* WBUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F98CF22123F73D005D4613 /* WBUserAccount.swift */; };
+		B5D134C3216D4A330054F4A6 /* CZRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D134C2216D4A330054F4A6 /* CZRefreshControl.swift */; };
 		C6749CB521439AB0009B43EA /* WBStatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6749CB421439AAF009B43EA /* WBStatusRetweetedCell.xib */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +126,7 @@
 		76F98CEE2123F71B005D4613 /* WBNetWorkManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WBNetWorkManager+Extension.swift"; sourceTree = "<group>"; };
 		76F98CEF2123F71B005D4613 /* WBNetWorkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBNetWorkManager.swift; sourceTree = "<group>"; };
 		76F98CF22123F73D005D4613 /* WBUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBUserAccount.swift; sourceTree = "<group>"; };
+		B5D134C2216D4A330054F4A6 /* CZRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZRefreshControl.swift; sourceTree = "<group>"; };
 		C6749CB421439AAF009B43EA /* WBStatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatusRetweetedCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +167,7 @@
 		763B494A204D4DF800ECA116 /* Tools(工具) */ = {
 			isa = PBXGroup;
 			children = (
+				B5D134C1216D4A020054F4A6 /* CZRefreshControl */,
 				76F98CEC2123F71B005D4613 /* Network */,
 				76618A50204ECFAB002EC691 /* Extensions */,
 				76BC415F204EC6D600E5522B /* Additions */,
@@ -404,6 +407,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B5D134C1216D4A020054F4A6 /* CZRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				B5D134C2216D4A330054F4A6 /* CZRefreshControl.swift */,
+			);
+			path = CZRefreshControl;
+			sourceTree = "<group>";
+		};
 		E0483EE7028136F50D8D21D4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -573,6 +584,7 @@
 				763B4953204D4E5B00ECA116 /* WBMainViewController.swift in Sources */,
 				76F98CF02123F71B005D4613 /* WBNetWorkManager+Extension.swift in Sources */,
 				76F98CE82122A21F005D4613 /* WeiBoCommon.swift in Sources */,
+				B5D134C3216D4A330054F4A6 /* CZRefreshControl.swift in Sources */,
 				7630C40A2141734B00A394BE /* WBStatusToolBar.swift in Sources */,
 				763B495D204D4EFE00ECA116 /* WBHomeViewController.swift in Sources */,
 				76BC417E204EC6D600E5522B /* NSString+CZPath.m in Sources */,

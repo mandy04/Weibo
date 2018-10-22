@@ -175,12 +175,14 @@ class WBStatusViewModel : CustomStringConvertible{
         }
         
         //过窄图像处理
-        if size.width < 300 {
+        if size.width < minWidth {
             //设置最窄宽度
             size.width = minWidth
             //等比例调整高度,  /4 ： 特殊处理高度，否则高度太大，会影响用户体验
             size.height = size.width * image.size.height / image.size.width / 4
         }
+        
+        //特例：有些图像本身就很窄，很长-》定义一个minHeight，思路同上
         //注意：尺寸需要增加顶部的12个点，便与布局
         size.height += WBStatusPictureViewOutterMargin
         //重新设置配图视图大小

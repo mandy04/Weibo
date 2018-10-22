@@ -11,7 +11,7 @@ import UIKit
 class CZRefreshControl: UIControl {
 
     
-    /// MARK: - h属性
+    /// MARK: - 属性
     //刷新控件的父视图，下拉刷新控件应该适用于 UITableView/ UICollectionview
     private weak var scrollView: UIScrollView?
     lazy var refreshControll : CZRefreshControl = CZRefreshControl()
@@ -45,8 +45,22 @@ class CZRefreshControl: UIControl {
         scrollView?.addObserver(self, forKeyPath: "contentOffset", options: [], context: nil)
         
     }
+    // 本视图从父视图移除
+    // 提示：所有的下拉刷新框架都是监听父视图的contentOffset
+    // 所有框架的KVO实现思路都是如此！
+    override func removeFromSuperview() {
+        //superView 还存在
+        superview?.removeObserver(self, forKeyPath: "contentOffset")
+        
+        super.removeFromSuperview()
+        //superView 不存在
+    }
     
     /// 所有KVO统一调用此方法
+    // 在程序中，通常只监听某一个对象的几个属性，否则会很乱！
+    // 观察者模式，在不需要的时候，都需要释放！
+    // - 通知中心：如果不释放，什么都不会发生，但是会有内存泄漏，会有多次注册的可能！
+    // - KVO：如果不释放，会崩溃！
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         //contentInset 的 y 值跟contentInset 的 top 有关
